@@ -1,0 +1,9 @@
+dyc:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: localhost
+    port: 3306
+    database: materialdatabase
+    username: root
+    password: 1234
