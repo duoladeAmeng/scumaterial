@@ -1,12 +1,9 @@
 package com.scu.mapper;
 
-
-
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.scu.entity.User;
+import com.scu.entity.Template;
 import org.apache.ibatis.annotations.Mapper;
 
-//@Mapper
-public interface UserMapper extends BaseMapper<User> {
 
+public interface TemplateMapper extends BaseMapper<Template> {
 }

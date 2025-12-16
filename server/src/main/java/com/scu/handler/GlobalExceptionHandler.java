@@ -1,6 +1,6 @@
 package com.scu.handler;
 
-import com.scu.common.Result;
+import com.scu.result.Result;
 import com.scu.exception.BaseException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

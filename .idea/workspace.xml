@@ -4,7 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="" />
+    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/exception/TemplateExistException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/mapper/TemplateMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/scu/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/MessageConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/ModuleStateConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/TemplateStateConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/scu/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/scu/constant/ModuleStateConstant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/ModuleInfoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/TemplateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/scu/entity/ModuleData.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/scu/entity/Template.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/scu/entity/ModuleEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/scu/entity/ModuleLink.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/scu/entity/ModuleParent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/scu/entity/ModuleStructure.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/scu/entity/Upload.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/scu/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/scu/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/ModuleInfoDTO$ModuleInfoDTOBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/ModuleInfoDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/entity/ModuleData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/entity/ModuleEntity$ModuleEntityBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/entity/ModuleEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/entity/ModuleLink.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/entity/Upload.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/entity/User$UserBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/target/classes/com/scu/entity/User$UserBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/target/classes/com/scu/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/MaterialPlatformApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/MaterialPlatformApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/common/CheckCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/CheckCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/common/PageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/result/PageResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/common/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/result/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/handler/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/handler/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/MaterialPlatformApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/MaterialPlatformApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/common/CheckCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/common/PageResult.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/common/Result.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/handler/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/handler/GlobalExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/mapper/UserMapper.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +62,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -34,25 +87,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.MaterialPlatformApplication.executor&quot;: &quot;Run&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/MyMindHive/MyProjects/MaterialSCU/MaterialPlatform/server/src/main/java/com/scu&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;E:/MyMindHive/MyProjects/MaterialSCU/MaterialPlatform/common/src/main/java/com/scu/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.MaterialPlatformApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "E:/MyMindHive/MyProjects/MaterialSCU/MaterialPlatform/server/src/main/java/com/scu",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "E:/MyMindHive/MyProjects/MaterialSCU/MaterialPlatform/common/src/main/java/com/scu/Main.java",
+    "project.structure.last.edited": "项目",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\MyMindHive\MyProjects\MaterialSCU\MaterialPlatform\server\src\main\java\com\scu" />
@@ -86,6 +152,9 @@
       </set>
     </attachedChunks>
   </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="实体" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
       <changelist id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="" />
@@ -93,7 +162,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1765802117201</updated>
-      <workItem from="1765802118512" duration="4711000" />
+      <workItem from="1765802118512" duration="5260000" />
+      <workItem from="1765815185519" duration="4154000" />
+      <workItem from="1765864471460" duration="819000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="TemplatesSettings">
+    <option name="templateConfigs">
+      <TemplateContext>
+        <option name="generateConfig">
+          <GenerateConfig>
+            <option name="annotationType" value="MYBATIS_PLUS3" />
+            <option name="basePackage" value="com.scu" />
+            <option name="basePath" value="src/main/java" />
+            <option name="classNameStrategy" value="camel" />
+            <option name="encoding" value="UTF-8" />
+            <option name="extraClassSuffix" value="" />
+            <option name="ignoreFieldPrefix" value="" />
+            <option name="ignoreFieldSuffix" value="" />
+            <option name="ignoreTablePrefix" value="" />
+            <option name="ignoreTableSuffix" value="" />
+            <option name="moduleName" value="pojo" />
+            <option name="modulePath" value="$PROJECT_DIR$/pojo" />
+            <option name="moduleUIInfoList">
+              <list>
+                <ModuleInfoGo>
+                  <option name="basePath" value="src/main/java" />
+                  <option name="configFileName" value="domain.ftl" />
+                  <option name="configName" value="domain" />
+                  <option name="encoding" value="UTF-8" />
+                  <option name="fileName" value="${domain.fileName}" />
+                  <option name="fileNameWithSuffix" value="${domain.fileName}.java" />
+                  <option name="modulePath" value="$PROJECT_DIR$/pojo" />
+                  <option name="packageName" value="com.scu.entity" />
+                </ModuleInfoGo>
+              </list>
+            </option>
+            <option name="needsComment" value="true" />
+            <option name="needsModel" value="false" />
+            <option name="relativePackage" value="entity" />
+            <option name="superClass" value="" />
+            <option name="tableUIInfoList">
+              <list>
+                <TableUIInfo>
+                  <option name="className" value="DynamicTableMetadata" />
+                  <option name="tableName" value="dynamic_table_metadata" />
+                </TableUIInfo>
+              </list>
+            </option>
+            <option name="templatesName" value="openapi3" />
+          </GenerateConfig>
+        </option>
+        <option name="moduleName" value="pojo" />
+        <option name="projectPath" value="$PROJECT_DIR$" />
+        <option name="templateName" value="openapi3" />
+      </TemplateContext>
+    </option>
+  </component>
+</project>

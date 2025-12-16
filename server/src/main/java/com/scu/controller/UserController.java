@@ -2,8 +2,8 @@ package com.scu.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.scu.common.CheckCode;
-import com.scu.common.Result;
+import com.scu.CheckCode;
+import com.scu.result.Result;
 
 import com.scu.dto.DeleteBatchDTO;
 import com.scu.dto.UserLoginDTO;
