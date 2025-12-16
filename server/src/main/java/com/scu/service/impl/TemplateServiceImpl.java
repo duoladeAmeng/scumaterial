@@ -5,12 +5,16 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.scu.constant.MessageConstant;
+import com.scu.constant.TemplateFieldCategoryConstant;
 import com.scu.constant.TemplateStateConstant;
 import com.scu.dto.TemplateDto;
 import com.scu.entity.Template;
+import com.scu.entity.TemplateField;
 import com.scu.exception.TemplateExistException;
 import com.scu.mapper.TemplateMapper;
+import com.scu.service.TemplateFieldService;
 import com.scu.service.TemplateService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -18,6 +22,10 @@ import java.util.List;
 
 @Service
 public class TemplateServiceImpl extends ServiceImpl<TemplateMapper, Template> implements TemplateService {
+
+    @Autowired
+    private TemplateFieldService templateFieldService;
+
     /**
      * 根据类别id获取模板
      * @param categoryId 类别id
@@ -33,24 +41,65 @@ public class TemplateServiceImpl extends ServiceImpl<TemplateMapper, Template> i
 
     /**
      * 创建模板
-     * @param templateDro 模板信息
+     * @param templateDto 模板信息
      */
     @Override
-    public void createTemplate(TemplateDto templateDro) {
+    public void createTemplate(TemplateDto templateDto) {
         // 获取模板名, 如果模板名已存在则抛出异常
-        String templateName = templateDro.getName();
+        String templateName = templateDto.getName();
         if (this.getOne(Wrappers.lambdaQuery(Template.class)
                 .eq(Template::getName, templateName)) != null) {
             throw new TemplateExistException(MessageConstant.TEMPLATE_NAME_EXIST);
         }
         // 封装模板信息
         Template template = new Template();
-        BeanUtil.copyProperties(templateDro,template);
+        BeanUtil.copyProperties(templateDto,template);
         template.setCreateTime(LocalDateTime.now());
         template.setUpdateTime(LocalDateTime.now());
         // 设置模板状态 新创建的模板状态是未审核
         template.setState(TemplateStateConstant.UNAUDITED);
+        System.out.println("保存前ID: " + template.getId());  // 打印为null
         // 保存模板
         this.save(template);
+        // 获取模板id
+        Long templateId = template.getId();
+        System.out.println("模板id:"+templateId);
+        // 保存模板字段
+        templateFieldService.saveTemplateFields(templateDto.getTemplateFieldDtos(),templateId);
+    }
+
+    /**
+     * 通过审核
+     * @param templateId
+     */
+    @Override
+    public void passAudit(Integer templateId) {
+        // 获取模板字段
+        LambdaQueryWrapper<TemplateField> wrapper = Wrappers.lambdaQuery(TemplateField.class)
+                                                            .eq(TemplateField::getTemplateId, templateId);
+        List<TemplateField> templateFields = templateFieldService.list(wrapper);
+        // 筛选出对象字段、操作字段、结果字段
+        // 对象字段
+        List<TemplateField> objFields=templateFields
+                .stream()
+                .filter(
+                        templateField ->
+                                templateField.getFieldCategory()== TemplateFieldCategoryConstant.OBJECT
+                ).toList();
+        // 操作字段
+        List<TemplateField> operationFields=templateFields
+                .stream()
+                .filter(
+                        templateField ->
+                                templateField.getFieldCategory()== TemplateFieldCategoryConstant.OPERATION
+                ).toList();
+        // 结果字段
+        List<TemplateField> resultFields=templateFields
+                .stream()
+                .filter(
+                        templateField ->
+                                templateField.getFieldCategory()== TemplateFieldCategoryConstant.RESULT
+                ).toList();
+
     }
 }

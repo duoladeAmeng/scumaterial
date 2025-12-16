@@ -2,6 +2,8 @@ package com.scu.entity;
 
 
 import java.util.Date;
+
+import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -9,9 +11,10 @@ import lombok.Data;
 @Schema(description = "动态表的元数据信息")
 public class DynamicTableMetadata {
     @Schema(description="id")
-    private Integer id;
+    @TableId
+    private Long id;
     @Schema(description="对应模板id")
-    private Integer templateId;
+    private Long templateId;
     @Schema(description="")
     private Date createTime;
     @Schema(description="")

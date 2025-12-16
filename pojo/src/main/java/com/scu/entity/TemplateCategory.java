@@ -2,6 +2,8 @@ package com.scu.entity;
 
 
 import java.util.Date;
+
+import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -9,6 +11,7 @@ import lombok.Data;
 @Schema(description = "模板类别")
 public class TemplateCategory {
     @Schema(description="分类主键")
+    @TableId
     private Integer id;
     @Schema(description="分类名称")
     private String categoryName;

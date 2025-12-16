@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class Template {
     @Schema(description = "模板id")
     @TableId
-    int id;
+    Long id;
 
     @Schema(description = "模板名")
     String name;

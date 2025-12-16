@@ -10,5 +10,7 @@ import java.util.List;
 public interface TemplateService extends IService<Template> {
     List<Template> getTemplateByCategory(Integer categoryId);
 
-    void createTemplate(TemplateDto templateDro);
+    void createTemplate(TemplateDto templateDto);
+
+    void passAudit(Integer templateId);
 }

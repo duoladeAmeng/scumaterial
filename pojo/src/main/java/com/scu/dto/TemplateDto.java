@@ -5,6 +5,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
+
 
 @Schema(description = "模板信息DTO")
 @Data
@@ -18,4 +20,6 @@ public class TemplateDto {
     String description;
     @Schema(description = "模板创建者")
     String creator;
+    @Schema(description = "模板字段")
+    List<TemplateFieldDto> templateFieldDtos;
 }
