@@ -45,7 +45,7 @@ public class AuditServiceImpl  extends ServiceImpl<AuditLogMapper, AuditLog> imp
      */
     @Override
     @Transactional
-    public void auditNewTemplate(AuditInfoDTO auditInfoDTO) {
+    public int auditNewTemplate(AuditInfoDTO auditInfoDTO) {
         Integer auditResult = auditInfoDTO.getAuditResult();
         String note = auditInfoDTO.getNote();
         Long templateId = auditInfoDTO.getTemplateId();
@@ -60,7 +60,7 @@ public class AuditServiceImpl  extends ServiceImpl<AuditLogMapper, AuditLog> imp
         auditLogMapper.insert(auditLog);
         // 审核不通过
         if (auditResult == AuditResultConstant.REJECT){
-            return;
+            return 0;
         }
         // 审核通过
         // 获取模板字段
@@ -99,6 +99,7 @@ public class AuditServiceImpl  extends ServiceImpl<AuditLogMapper, AuditLog> imp
                 .eq(Template::getId, templateId)
                 .set(Template::getState, TemplateStateConstant.AUDITED);
         templateMapper.update(updateWrapper);
+        return 1;
     }
 
 }

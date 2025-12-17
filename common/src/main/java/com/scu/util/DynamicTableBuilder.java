@@ -29,7 +29,7 @@ public class DynamicTableBuilder {
      */
     public void createUnifiedTableForTemplate(Long templateId, List<TemplateField> templateFields) {
         //表名
-        String tableName = "template_" + templateId;
+        String tableName = "template_data_" + templateId;
         //sql语句
         StringBuilder sql = new StringBuilder("CREATE TABLE IF NOT EXISTS `" + tableName + "` (")
                 .append("`id` BIGINT PRIMARY KEY AUTO_INCREMENT");

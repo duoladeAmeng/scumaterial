@@ -4,13 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="实现模板对应excel文件导出">
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/TemplateDataDto.java" afterDir="false" />
+    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="修正 获取所有待审核模板 返回结果：要包含模板字段名">
+      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/TemplateToAuditDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateDataDto$TemplateDataDtoBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateDataDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateDataService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateDataService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/entity/TemplateCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/target/classes/com/scu/entity/TemplateCategory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/scu/util/DynamicTableBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/util/DynamicTableBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/scu/util/TableOpUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/util/TableOpUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/scu/util/DynamicTableBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/scu/util/DynamicTableBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/scu/util/TableOpUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/scu/util/TableOpUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/AuditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/AuditController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateDataController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/mapper/TemplateCategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/mapper/TemplateCategoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/AuditService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/AuditService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/AuditServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/AuditServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/controller/AuditController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/controller/AuditController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateDataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateDataController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/mapper/TemplateCategoryMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/mapper/TemplateCategoryMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/AuditService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/AuditService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/AuditServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/AuditServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +188,7 @@
       <workItem from="1765815185519" duration="4154000" />
       <workItem from="1765864471460" duration="13946000" />
       <workItem from="1765948674502" duration="13357000" />
-      <workItem from="1765971165759" duration="3633000" />
+      <workItem from="1765971165759" duration="8223000" />
     </task>
     <task id="LOCAL-00001" summary="实现 根据模板分类获取模板 和 创建模板">
       <option name="closed" value="true" />
@@ -214,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765973529849</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="实现获取所有待审核模板">
+      <option name="closed" value="true" />
+      <created>1765975006421</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1765975006421</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +249,8 @@
     <MESSAGE value="更正创建模板的业务逻辑" />
     <MESSAGE value="实现新建模板的业务" />
     <MESSAGE value="实现模板对应excel文件导出" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现模板对应excel文件导出" />
+    <MESSAGE value="实现获取所有待审核模板" />
+    <MESSAGE value="修正 获取所有待审核模板 返回结果：要包含模板字段名" />
+    <option name="LAST_COMMIT_MESSAGE" value="修正 获取所有待审核模板 返回结果：要包含模板字段名" />
   </component>
 </project>
