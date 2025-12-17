@@ -27,3 +27,7 @@ knife4j:
   enable: true
   setting:
     language: zh_cn
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto

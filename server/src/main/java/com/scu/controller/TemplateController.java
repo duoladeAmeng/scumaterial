@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/template")
-@Tag(name = "模板相关接口",description = "模板相关操作")
+@Tag(name = "模板相关接口",description = "普通用户申请创建模板，根据模板分类获取模板，删除模板，更新模板等操作")
 public class TemplateController {
 
     @Autowired
@@ -46,14 +46,5 @@ public class TemplateController {
     public Result update(@RequestBody TemplateDto templateDto){
         return null;
     }
-
-    //TODO 审核模板
-    @Operation(summary = "审核员审核模板通过接口",description = "审核员审核模板通过接口")
-    @GetMapping("/auditPass/{templateIid}")
-    public Result passAudit(@PathVariable Integer templateId){
-        templateService.passAudit(templateId);
-        return null;
-    }
-
 
 }

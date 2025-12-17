@@ -8,10 +8,12 @@ import com.scu.constant.MessageConstant;
 import com.scu.constant.TemplateFieldCategoryConstant;
 import com.scu.constant.TemplateStateConstant;
 import com.scu.dto.TemplateDto;
+import com.scu.entity.AuditLog;
 import com.scu.entity.Template;
 import com.scu.entity.TemplateField;
 import com.scu.exception.TemplateExistException;
 import com.scu.mapper.TemplateMapper;
+import com.scu.service.AuditService;
 import com.scu.service.TemplateFieldService;
 import com.scu.service.TemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,8 @@ public class TemplateServiceImpl extends ServiceImpl<TemplateMapper, Template> i
 
     @Autowired
     private TemplateFieldService templateFieldService;
+    @Autowired
+    private AuditService auditService;
 
     /**
      * 根据类别id获取模板
@@ -68,38 +72,4 @@ public class TemplateServiceImpl extends ServiceImpl<TemplateMapper, Template> i
         templateFieldService.saveTemplateFields(templateDto.getTemplateFieldDtos(),templateId);
     }
 
-    /**
-     * 通过审核
-     * @param templateId
-     */
-    @Override
-    public void passAudit(Integer templateId) {
-        // 获取模板字段
-        LambdaQueryWrapper<TemplateField> wrapper = Wrappers.lambdaQuery(TemplateField.class)
-                                                            .eq(TemplateField::getTemplateId, templateId);
-        List<TemplateField> templateFields = templateFieldService.list(wrapper);
-        // 筛选出对象字段、操作字段、结果字段
-        // 对象字段
-        List<TemplateField> objFields=templateFields
-                .stream()
-                .filter(
-                        templateField ->
-                                templateField.getFieldCategory()== TemplateFieldCategoryConstant.OBJECT
-                ).toList();
-        // 操作字段
-        List<TemplateField> operationFields=templateFields
-                .stream()
-                .filter(
-                        templateField ->
-                                templateField.getFieldCategory()== TemplateFieldCategoryConstant.OPERATION
-                ).toList();
-        // 结果字段
-        List<TemplateField> resultFields=templateFields
-                .stream()
-                .filter(
-                        templateField ->
-                                templateField.getFieldCategory()== TemplateFieldCategoryConstant.RESULT
-                ).toList();
-
-    }
 }

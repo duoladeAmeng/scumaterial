@@ -11,8 +11,8 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.scu.constant.MessageConstant;
 import com.scu.constant.PasswordConstant;
-import com.scu.constant.RoleConstant;
 import com.scu.constant.SessionKeyConstant;
+import com.scu.constant.UserRoleConstant;
 import com.scu.dto.UserLoginDTO;
 import com.scu.dto.UserRegisterDTO;
 import com.scu.entity.User;
@@ -75,7 +75,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                 .username(username)
                 .password(DigestUtils.md5DigestAsHex(password.getBytes()))
                 .name(userRegisterDTO.getName())
-                .role(RoleConstant.ROLE_USER)
+                .role(UserRoleConstant.ROLE_USER)
                 .build();
         save(user);
     }

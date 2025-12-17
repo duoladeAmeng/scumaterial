@@ -1,5 +1,6 @@
 package com.scu.constant;
 
+//消息常量
 public class MessageConstant {
     public static final String SUCCESS = "success";
     public static final String USER_LOGIN_SUCCESS = "用户登录成功";

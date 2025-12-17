@@ -5,4 +5,3 @@ public class TemplateStateConstant {
     public static final int UNAUDITED = 0;
     public static final int AUDITED = 1;
 }
-

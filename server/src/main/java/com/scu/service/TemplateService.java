@@ -12,5 +12,4 @@ public interface TemplateService extends IService<Template> {
 
     void createTemplate(TemplateDto templateDto);
 
-    void passAudit(Integer templateId);
 }
