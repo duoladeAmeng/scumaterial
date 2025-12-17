@@ -27,6 +27,7 @@
         <mybatis-plus-spring-boot3-starter.version>3.5.15</mybatis-plus-spring-boot3-starter.version>
         <druid-spring-boot-starter.version>1.2.20</druid-spring-boot-starter.version>
         <hutool.version>5.8.38</hutool.version>
+        <poi-ooxml.version>5.2.5</poi-ooxml.version>
     </properties>
 
     <dependencyManagement>
@@ -52,19 +53,24 @@
                 <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
                 <version>${mybatis-plus-spring-boot3-starter.version}</version>
             </dependency>
+            <!--druid依赖-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid-spring-boot-starter.version}</version>
             </dependency>
-
-
+<!--            hutool依赖-->
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
-
+            <!-- Apache POI for Excel -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi-ooxml.version}</version>
+            </dependency>
 
         </dependencies>
 
