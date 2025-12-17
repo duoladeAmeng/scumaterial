@@ -1,10 +1,14 @@
 package com.scu.controller;
 
+import com.scu.dto.TemplateDataDto;
 import com.scu.result.Result;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/templateData")
@@ -13,7 +17,8 @@ public class TemplateDataController {
     //TODO 获取模板数据
     //TODO 添加模板数据 单条方式
     @PostMapping("/addATemplateData")
-    public Result addATemplateData(){
+    public Result addATemplateData(@RequestBody List<TemplateDataDto> templateDataDtos){
+//        templateDataDtos.stream().forEach();
         return null;
     }
 
