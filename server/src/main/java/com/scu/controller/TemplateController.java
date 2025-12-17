@@ -47,4 +47,11 @@ public class TemplateController {
         return null;
     }
 
+    //获取模板对应的excel文件
+    @Operation(summary = "获取模板对应的excel文件",description = "获取模板对应的excel文件")
+    @GetMapping("/getTemplateExcel/{template_id}")
+    public Result getTemplateExcel(@PathVariable("template_id") Integer template_id){
+
+    }
+
 }

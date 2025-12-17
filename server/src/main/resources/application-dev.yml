@@ -7,3 +7,8 @@ dyc:
     database: material_database
     username: root
     password: 1234
+  mongodb:
+    uri: mongodb://username:password@host:port/database
+    database: picture
+    host: 192.168.26.72
+    port: 27017
