@@ -8,5 +8,5 @@ import java.util.List;
 public interface TemplateDataService {
     void saveTemplateDataSingle(List<TemplateDataDto> templateDataDtos);
 
-    void saveTemplateDataBatch(MultipartFile file);
+    void saveTemplateDataBatch(MultipartFile file, Long templateId);
 }

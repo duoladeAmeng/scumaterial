@@ -3,6 +3,8 @@ package com.scu.service.impl;
 import com.scu.dto.TemplateDataDto;
 import com.scu.service.TemplateDataService;
 import lombok.RequiredArgsConstructor;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -52,13 +54,76 @@ public class TemplateDataServiceImpl implements TemplateDataService {
 
     }
 
+    @Transactional
     @Override
-    public void saveTemplateDataBatch(MultipartFile file) {
-        // 获取第一个 templateId 作为基准
-//        Long templateId = dtos.get(0).getTemplateId();
-        // 构造动态表名
-//        String tableName = "template_data_" + templateId;
+    public void saveTemplateDataBatch(MultipartFile file, Long templateId) {
+        try {
+            Workbook workbook = new XSSFWorkbook(file.getInputStream());
+            Sheet sheet = workbook.getSheetAt(0);
+
+            // 获取表头行
+            Row headerRow = sheet.getRow(0);
+            int lastCellNum = headerRow.getLastCellNum();
+
+            // 读取所有数据行
+            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+                Row dataRow = sheet.getRow(i);
+                if (dataRow == null) continue;
+
+                // 构造TemplateDataDto列表
+                List<TemplateDataDto> dtos = new ArrayList<>();
+
+
+                for (int j = 0; j < lastCellNum; j++) {
+                    Cell cell = dataRow.getCell(j);
+                    String fieldName = headerRow.getCell(j).getStringCellValue();
+                    Object cellValue = getCellValue(cell);
+
+                    TemplateDataDto dto = TemplateDataDto
+                             .builder()
+                            .templateId(templateId)
+                            .fieldName(fieldName)
+                            .fieldValue(cellValue)
+                            .build();
+                    dtos.add(dto);
+
+                }
+
+                // 调用已有的单条保存方法
+                if (!dtos.isEmpty()) {
+                    saveTemplateDataSingle(dtos);
+                }
+            }
+
+            workbook.close();
+        } catch (Exception e) {
+            throw new RuntimeException("批量导入模板数据失败", e);
+        }
     }
+
+    private Object getCellValue(Cell cell) {
+        if (cell == null) {
+            return null;
+        }
+
+        switch (cell.getCellType()) {
+            case STRING:
+                return cell.getStringCellValue();
+            case NUMERIC:
+                if (DateUtil.isCellDateFormatted(cell)) {
+                    return cell.getDateCellValue();
+                } else {
+                    return cell.getNumericCellValue();
+                }
+            case BOOLEAN:
+                return cell.getBooleanCellValue();
+            case FORMULA:
+                return cell.getCellFormula();
+            default:
+                return null;
+        }
+    }
+
 
 
 }

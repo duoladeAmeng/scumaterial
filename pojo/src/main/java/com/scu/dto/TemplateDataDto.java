@@ -13,5 +13,5 @@ public class TemplateDataDto {
     @Schema(description = "该数据对应的字段名")
     private String fieldName;
     @Schema(description = "该字段对应的值")
-    private String fieldValue;
+    private Object fieldValue;
 }
