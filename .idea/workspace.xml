@@ -4,8 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="更正 获取用户所有模板 返回信息添加审核意见">
+    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="修复 添加审核日志没有日期的问题">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateFieldService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateFieldService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/AuditServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/AuditServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateFieldServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateFieldServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateFieldService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateFieldService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/AuditServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/AuditServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateFieldServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateFieldServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +180,7 @@
       <workItem from="1765864471460" duration="13946000" />
       <workItem from="1765948674502" duration="13357000" />
       <workItem from="1765971165759" duration="10167000" />
-      <workItem from="1766028598411" duration="9244000" />
+      <workItem from="1766028598411" duration="10567000" />
     </task>
     <task id="LOCAL-00001" summary="实现 根据模板分类获取模板 和 创建模板">
       <option name="closed" value="true" />
@@ -266,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766044540995</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="修复 添加审核日志没有日期的问题">
+      <option name="closed" value="true" />
+      <created>1766044731857</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1766044731857</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,6 +305,7 @@
     <MESSAGE value="实现 批量上传模板数据" />
     <MESSAGE value="实现 获取模板分类功能" />
     <MESSAGE value="更正 获取用户所有模板 返回信息添加审核意见" />
-    <option name="LAST_COMMIT_MESSAGE" value="更正 获取用户所有模板 返回信息添加审核意见" />
+    <MESSAGE value="修复 添加审核日志没有日期的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复 添加审核日志没有日期的问题" />
   </component>
 </project>

@@ -18,7 +18,9 @@ import com.scu.service.AuditService;
 import com.scu.service.TemplateFieldService;
 import com.scu.service.TemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -32,6 +34,8 @@ public class TemplateServiceImpl extends ServiceImpl<TemplateMapper, Template> i
     @Autowired
     private AuditService auditService;
 
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
     /**
      * 根据类别id获取模板
      * @param categoryId 类别id
@@ -121,6 +125,23 @@ public class TemplateServiceImpl extends ServiceImpl<TemplateMapper, Template> i
         System.out.println("模板id:"+templateId);
         // 保存模板字段
         templateFieldService.saveTemplateFields(templateDto.getTemplateFieldDtos(),templateId);
+    }
+
+    /**
+     * 删除模板
+     * @param templateIds 模板id列表
+     */
+
+    @Override
+    @Transactional
+    public void deleteTemplates(List<Long> templateIds) {
+        for (Long templateId : templateIds){
+            this.removeById(templateId);//删除模板
+            templateFieldService.deleteTemplateFieldsByTemplateId(templateId);//删除模板字段
+             //删除模板对应的表
+            String tableName = "template_data_" + templateId;
+            jdbcTemplate.execute("DROP TABLE IF EXISTS " + tableName);
+        }
     }
 
 }

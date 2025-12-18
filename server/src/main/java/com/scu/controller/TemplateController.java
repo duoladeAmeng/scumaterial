@@ -63,13 +63,11 @@ public class TemplateController {
         return Result.success(list);
     }
 
-    //TODO 删除模板
     @Operation(summary = "删除模板",description = "用户发起删除模板请求，需等待管理员审核")
     @PostMapping("/delete")
-    public Result delete(@RequestBody List<Integer> templateIds) {
-        templateService.removeBatchByIds(templateIds);
-        // TODO 删除其他表中的模板信息
-        return null;
+    public Result delete(@RequestBody List<Long> templateIds) {
+        templateService.deleteTemplates(templateIds);
+        return Result.success();
     }
 
     //TODO 更新模板

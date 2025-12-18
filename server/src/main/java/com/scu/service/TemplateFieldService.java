@@ -11,4 +11,5 @@ public interface TemplateFieldService extends IService<TemplateField> {
 
     List<TemplateField> getTemplateFieldsByTemplateId(Long templateId);
 
+    void deleteTemplateFieldsByTemplateId(Long templateId);
 }

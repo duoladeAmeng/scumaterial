@@ -15,4 +15,5 @@ public interface TemplateService extends IService<Template> {
     List<TemplateDetailedInfoDto> getDetailedTemplateByUsername(String username);
     void createTemplate(TemplateDto templateDto);
 
+    public void deleteTemplates(List<Long> templateIds);
 }

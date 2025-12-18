@@ -44,4 +44,11 @@ public class TemplateFieldServiceImpl extends ServiceImpl<TemplateFieldMapper, T
         return list(wrapper);
     }
 
+    @Override
+    public void deleteTemplateFieldsByTemplateId(Long templateId) {
+        LambdaQueryWrapper<TemplateField> wrapper = Wrappers.lambdaQuery(TemplateField.class)
+                .eq(TemplateField::getTemplateId, templateId);
+        remove(wrapper);
+    }
+
 }

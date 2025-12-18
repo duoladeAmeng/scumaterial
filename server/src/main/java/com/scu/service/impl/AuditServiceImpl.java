@@ -114,7 +114,8 @@ public class AuditServiceImpl  extends ServiceImpl<AuditLogMapper, AuditLog> imp
         LambdaQueryWrapper<AuditLog> wrapper = Wrappers.lambdaQuery(AuditLog.class)
                 .eq(AuditLog::getTemplateId, templateId)
                 .orderByDesc(AuditLog::getLogDate);
-        return auditLogMapper.selectList( wrapper).get(0);
+        List<AuditLog> logList = auditLogMapper.selectList(wrapper);
+        return logList.size() == 0 ? null : logList.get(0);
     }
 
 }
