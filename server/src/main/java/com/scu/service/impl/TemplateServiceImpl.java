@@ -57,6 +57,32 @@ public class TemplateServiceImpl extends ServiceImpl<TemplateMapper, Template> i
         for (Template template : templates){
             TemplateDetailedInfoDto templateDetailedInfoDto = TemplateDetailedInfoDto.builder()
                     .templateId(template.getId())
+                    .templateCategory(template.getCategoryId())
+                    .createTime(template.getCreateTime())
+                    .state(template.getState())
+                    .templateName(template.getName())
+                    .templateFields(templateFieldService.getTemplateFieldsByTemplateId(template.getId()))
+                    .build();
+            templateDetailedInfoDtos.add(templateDetailedInfoDto);
+        }
+        return templateDetailedInfoDtos;
+    }
+
+    /**
+     * 根据用户名(模板创建者)获取其创建的模板的详细信息
+     * @param username 用户名
+     * @return 模板列表
+     */
+    @Override
+    public List<TemplateDetailedInfoDto> getDetailedTemplateByUsername(String username) {
+        List<Template> templates = list(Wrappers.lambdaQuery(Template.class).eq(Template::getCreator, username));
+        List templateDetailedInfoDtos = new ArrayList<>();
+        for (Template template : templates){
+            TemplateDetailedInfoDto templateDetailedInfoDto = TemplateDetailedInfoDto.builder()
+                    .templateId(template.getId())
+                    .templateCategory(template.getCategoryId())
+                    .createTime(template.getCreateTime())
+                    .state(template.getState())
                     .templateName(template.getName())
                     .templateFields(templateFieldService.getTemplateFieldsByTemplateId(template.getId()))
                     .build();

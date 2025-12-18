@@ -43,6 +43,13 @@ public class TemplateController {
         return Result.success();
     }
 
+    @Operation(summary = "获取当前用户的所有模板")
+    @GetMapping("/getTemplateByUsername/{username}")
+    public Result getTemplateByUsername(@PathVariable("username") String username){
+        List<TemplateDetailedInfoDto> detailedTemplates = templateService.getDetailedTemplateByUsername(username);
+        return Result.success(detailedTemplates);
+    }
+
     @Operation(summary = "根据模板分类获取模板")
     @GetMapping("/getTemplateByCategory/{category_id}")
     public Result getTemplateByCategory(@PathVariable("category_id") Integer category_id){

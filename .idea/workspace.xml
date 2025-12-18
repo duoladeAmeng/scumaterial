@@ -4,18 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="实现 添加单条模板数据">
+    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="实现 根据模板分类获取模板详细信息">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/TemplateToAuditDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/TemplateDetailedInfoDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/AuditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/AuditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/TemplateDetailedInfoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/TemplateDetailedInfoDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateToAuditDto$TemplateToAuditDtoBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateToAuditDto.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateDataController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateFieldService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateFieldService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateFieldServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateFieldServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateDataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateDataController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateDataService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateFieldService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateFieldService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateFieldServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateFieldServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +185,7 @@
       <workItem from="1765864471460" duration="13946000" />
       <workItem from="1765948674502" duration="13357000" />
       <workItem from="1765971165759" duration="10167000" />
-      <workItem from="1766028598411" duration="653000" />
+      <workItem from="1766028598411" duration="4039000" />
     </task>
     <task id="LOCAL-00001" summary="实现 根据模板分类获取模板 和 创建模板">
       <option name="closed" value="true" />
@@ -236,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765980026102</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="实现 根据模板分类获取模板详细信息">
+      <option name="closed" value="true" />
+      <created>1766029426307</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1766029426307</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,6 +265,7 @@
     <MESSAGE value="实现获取所有待审核模板" />
     <MESSAGE value="修正 获取所有待审核模板 返回结果：要包含模板字段名" />
     <MESSAGE value="实现 添加单条模板数据" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现 添加单条模板数据" />
+    <MESSAGE value="实现 根据模板分类获取模板详细信息" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现 根据模板分类获取模板详细信息" />
   </component>
 </project>
