@@ -1,6 +1,7 @@
 package com.scu.controller;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.scu.dto.TemplateDetailedInfoDto;
 import com.scu.dto.TemplateDto;
 import com.scu.entity.Template;
 import com.scu.entity.TemplateField;
@@ -47,6 +48,12 @@ public class TemplateController {
     public Result getTemplateByCategory(@PathVariable("category_id") Integer category_id){
         List<Template> templates = templateService.getTemplateByCategory(category_id);
         return Result.success(templates);
+    }
+    @Operation(summary = "根据模板分类获取模板详细信息")
+    @GetMapping("/getDetailedTemplateByCategory/{category_id}")
+    public Result getDetailedTemplateByCategory(@PathVariable("category_id") Integer category_id){
+        List<TemplateDetailedInfoDto> list = templateService.getDetailedTemplateByCategory(category_id);
+        return Result.success(list);
     }
 
     //TODO 删除模板

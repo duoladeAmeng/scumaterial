@@ -26,13 +26,13 @@ public class TemplateDataController {
     @Parameter(name = "templateDataDtos",description = "模板数据对象")
     @PostMapping("/addATemplateData")
     public Result addATemplateData(@RequestBody List<TemplateDataDto> templateDataDtos){
-        templateDataService.saveTemplateData(templateDataDtos);
+        templateDataService.saveTemplateDataSingle(templateDataDtos);
         return Result.success();
     }
 
     //TODO 添加模板数据 excel文件批量方式
     @PostMapping("/addTemplateDataBatch")
-    public Result addTemplateDataBatch(){
+    public Result addTemplateDataBatch(){ 
         return null;
     }
 }

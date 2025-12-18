@@ -22,7 +22,7 @@ public class TemplateDataServiceImpl implements TemplateDataService {
     }
 
     @Transactional
-    public void saveTemplateData(List<TemplateDataDto> dtos) {
+    public void saveTemplateDataSingle(List<TemplateDataDto> dtos) {
 
         // 获取第一个 templateId 作为基准
         Long templateId = dtos.get(0).getTemplateId();
@@ -50,5 +50,6 @@ public class TemplateDataServiceImpl implements TemplateDataService {
         jdbcTemplate.update(sql, args.toArray());
 
     }
+
 
 }

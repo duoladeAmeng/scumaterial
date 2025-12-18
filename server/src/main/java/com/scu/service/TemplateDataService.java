@@ -5,5 +5,5 @@ import com.scu.dto.TemplateDataDto;
 import java.util.List;
 
 public interface TemplateDataService {
-    void saveTemplateData(List<TemplateDataDto> templateDataDtos);
+    void saveTemplateDataSingle(List<TemplateDataDto> templateDataDtos);
 }

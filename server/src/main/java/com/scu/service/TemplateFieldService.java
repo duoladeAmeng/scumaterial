@@ -8,4 +8,7 @@ import java.util.List;
 
 public interface TemplateFieldService extends IService<TemplateField> {
     void saveTemplateFields(List<TemplateFieldDto> templateFieldDtos,Long templateId);
+
+    List<TemplateField> getTemplateFieldsByTemplateId(Long templateId);
+
 }

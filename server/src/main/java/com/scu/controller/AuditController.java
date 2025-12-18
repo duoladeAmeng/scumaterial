@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.scu.constant.TemplateStateConstant;
 import com.scu.dto.AuditInfoDTO;
-import com.scu.dto.TemplateToAuditDto;
+import com.scu.dto.TemplateDetailedInfoDto;
 import com.scu.entity.Template;
 import com.scu.entity.TemplateField;
 import com.scu.result.Result;
@@ -47,9 +47,9 @@ public class AuditController {
                 Wrappers.lambdaQuery(Template.class)
                 .eq(Template::getState, TemplateStateConstant.UNAUDITED);
         List<Template> tmp_unaudited = templateService.list(wrapper);
-        List<TemplateToAuditDto> templateToAuditDtos=new ArrayList<>();
+        List<TemplateDetailedInfoDto> templateToAuditDtos=new ArrayList<>();
         for (Template template : tmp_unaudited){
-            TemplateToAuditDto templateToAuditDto = TemplateToAuditDto.builder()
+            TemplateDetailedInfoDto templateToAuditDto = TemplateDetailedInfoDto.builder()
                     .templateId(template.getId())
                     .templateName(template.getName())
                     .build();

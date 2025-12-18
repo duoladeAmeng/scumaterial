@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.scu.constant.MessageConstant;
 import com.scu.constant.TemplateFieldCategoryConstant;
 import com.scu.constant.TemplateStateConstant;
+import com.scu.dto.TemplateDetailedInfoDto;
 import com.scu.dto.TemplateDto;
 import com.scu.entity.AuditLog;
 import com.scu.entity.Template;
@@ -20,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -42,6 +44,27 @@ public class TemplateServiceImpl extends ServiceImpl<TemplateMapper, Template> i
                 .eq(Template::getCategoryId, categoryId);
         return this.list(wrapper);
     }
+
+    /**
+     * 根据类别id获取模板详细信息
+     * @param categoryId 类别id
+     * @return 模板列表
+     */
+    @Override
+    public List<TemplateDetailedInfoDto> getDetailedTemplateByCategory(Integer categoryId) {
+        List<Template> templates = getTemplateByCategory(categoryId);
+        List templateDetailedInfoDtos = new ArrayList<>();
+        for (Template template : templates){
+            TemplateDetailedInfoDto templateDetailedInfoDto = TemplateDetailedInfoDto.builder()
+                    .templateId(template.getId())
+                    .templateName(template.getName())
+                    .templateFields(templateFieldService.getTemplateFieldsByTemplateId(template.getId()))
+                    .build();
+            templateDetailedInfoDtos.add(templateDetailedInfoDto);
+        }
+        return templateDetailedInfoDtos;
+    }
+
 
     /**
      * 创建模板

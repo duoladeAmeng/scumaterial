@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @Builder
-public class TemplateToAuditDto {
+public class TemplateDetailedInfoDto {
     private Long templateId;
     private String templateName;
     private List<TemplateField> templateFields;
