@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="实现 批量上传模板数据">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateCategoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateCategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateCategoryServiceImpl.java" afterDir="false" />
+    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="实现 获取模板分类功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateDataDto$TemplateDataDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateDataDto$TemplateDataDtoBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateDataDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateDataDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/TemplateDetailedInfoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/TemplateDetailedInfoDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/AuditService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/AuditService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/AuditServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/AuditServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +172,7 @@
       <workItem from="1765864471460" duration="13946000" />
       <workItem from="1765948674502" duration="13357000" />
       <workItem from="1765971165759" duration="10167000" />
-      <workItem from="1766028598411" duration="7439000" />
+      <workItem from="1766028598411" duration="9015000" />
     </task>
     <task id="LOCAL-00001" summary="实现 根据模板分类获取模板 和 创建模板">
       <option name="closed" value="true" />
@@ -255,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766041943973</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="实现 获取模板分类功能">
+      <option name="closed" value="true" />
+      <created>1766042936448</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1766042936448</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,6 +279,7 @@
     <MESSAGE value="实现 根据模板分类获取模板详细信息" />
     <MESSAGE value="实现 根据用户名(模板创建者)获取模板详细信息" />
     <MESSAGE value="实现 批量上传模板数据" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现 批量上传模板数据" />
+    <MESSAGE value="实现 获取模板分类功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现 获取模板分类功能" />
   </component>
 </project>

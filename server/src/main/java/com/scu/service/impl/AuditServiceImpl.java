@@ -102,4 +102,17 @@ public class AuditServiceImpl  extends ServiceImpl<AuditLogMapper, AuditLog> imp
         return 1;
     }
 
+    /**
+     * 根据模板id获取审核日志
+     * @param templateId
+     * @return
+     */
+    @Override
+    public AuditLog getAuditLogByTemplateId(Long templateId) {
+        LambdaQueryWrapper<AuditLog> wrapper = Wrappers.lambdaQuery(AuditLog.class)
+                .eq(AuditLog::getTemplateId, templateId)
+                .orderByDesc(AuditLog::getLogDate);
+        return auditLogMapper.selectList( wrapper).get(0);
+    }
+
 }
