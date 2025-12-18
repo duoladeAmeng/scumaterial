@@ -62,6 +62,7 @@ public class TemplateServiceImpl extends ServiceImpl<TemplateMapper, Template> i
                     .state(template.getState())
                     .templateName(template.getName())
                     .templateFields(templateFieldService.getTemplateFieldsByTemplateId(template.getId()))
+                    .note(auditService.getAuditLogByTemplateId(template.getId()).getNote())
                     .build();
             templateDetailedInfoDtos.add(templateDetailedInfoDto);
         }
