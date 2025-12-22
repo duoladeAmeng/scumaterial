@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -45,27 +46,29 @@ public class TemplateFieldServiceImpl extends ServiceImpl<TemplateFieldMapper, T
                 )
                 .collect(Collectors.toList());
         this.saveBatch(templateFields);
-        for (TemplateField templateField : templateFields) System.out.println(templateField.getDataType());
-        String enums_name="";
         //特殊处理枚举型，要求前端传入 枚举名:枚举子项名，如"SEASON:SUMMER"
         List<TemplateField> enu_list = templateFields.stream().filter(templateField -> templateField.getDataType().equals(FieldDataTypeEnum.Enumeration.getName())).toList();
         if(enu_list.isEmpty()) return;
-        //获取保存顶级枚举名 如SEASON
-        enums_name = enu_list.get(0).getFieldName().split(":")[0];
-        TemplateFieldDataTypeEnum enum_sup = TemplateFieldDataTypeEnum.builder().name(enums_name)
-                .templateId(templateId)
-                .sup(-1)
-                .build();
-        templateFieldDataTypeEnumMapper.insert(enum_sup);
-        //获取保存枚举子项，如SUMMER
-        List<TemplateFieldDataTypeEnum> enum_child_list = enu_list.stream().map(
-                templateField -> TemplateFieldDataTypeEnum.builder()
-                .name(templateField.getFieldName().split(":")[1])
-                .templateId(templateId)
-                .sup(enum_sup.getId())
-                .build())
-                .collect(Collectors.toList());
-        templateFieldDataTypeEnumMapper.insert(enum_child_list);
+        Map<String, List<TemplateField>> listMap = enu_list.stream().collect(Collectors.groupingBy(templateField -> templateField.getFieldName().split(":")[0]));
+        for (String s : listMap.keySet()) {
+            //获取保存顶级枚举名 如SEASON
+            TemplateFieldDataTypeEnum enum_sup = TemplateFieldDataTypeEnum.builder().name(s)
+                    .templateId(templateId)
+                    .sup(-1)
+                    .build();
+            templateFieldDataTypeEnumMapper.insert(enum_sup);
+            List<TemplateField> templateFieldsOfNowEnum = listMap.get(s);
+            //获取保存枚举子项，如SUMMER
+            List<TemplateFieldDataTypeEnum> enum_child_list = templateFieldsOfNowEnum.stream().map(
+                            templateField -> TemplateFieldDataTypeEnum.builder()
+                                    .name(templateField.getFieldName().split(":")[1])
+                                    .templateId(templateId)
+                                    .sup(enum_sup.getId())
+                                    .build())
+                    .collect(Collectors.toList());
+            templateFieldDataTypeEnumMapper.insert(enum_child_list);
+        }
+
     }
 
     /**

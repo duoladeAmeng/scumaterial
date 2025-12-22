@@ -5,6 +5,7 @@ import com.scu.dto.TemplateDetailedInfoDto;
 import com.scu.dto.TemplateDto;
 import com.scu.entity.Template;
 import com.scu.entity.TemplateField;
+import com.scu.enu.FieldDataTypeEnum;
 import com.scu.exception.BaseException;
 import com.scu.result.Result;
 import com.scu.service.TemplateFieldService;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -87,6 +89,26 @@ public class TemplateController {
                 Wrappers.lambdaQuery(TemplateField.class)
                         .eq(TemplateField::getTemplateId, templateId)
                 );
+        List<String> templateFieldNameInSheet=new ArrayList<>();
+        int i=0;
+        while (i<fields.size()){
+            if(fields.get(i).getDataType().equals(FieldDataTypeEnum.Enumeration.getName())){
+                StringBuilder name=new StringBuilder();
+                String nowEnuName=fields.get(i).getFieldName().split(":")[0];
+                name.append(nowEnuName+"(");
+                while (i<fields.size()&&fields.get(i).getFieldName().startsWith(nowEnuName)){
+                    name.append(fields.get(i).getFieldName().split(":")[1]+",");
+                    i++;
+                }
+                name.append(")");
+                templateFieldNameInSheet.add(name.toString());
+            }
+            else{
+                templateFieldNameInSheet.add(fields.get(i).getFieldName()+"("+fields.get(i).getDataType()+")");
+                i++;
+            }
+        }
+
         //生成 Excel
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         try (Workbook workbook = new XSSFWorkbook()) {
@@ -97,14 +119,14 @@ public class TemplateController {
             Font headerFont = workbook.createFont();
             headerFont.setBold(true);
             headerStyle.setFont(headerFont);
-            for (int i = 0; i < fields.size(); i++) {
-                Cell cell = headerRow.createCell(i);
-                cell.setCellValue(fields.get(i).getFieldName());
+            for (int j = 0; j < templateFieldNameInSheet.size() ; j++) {
+                Cell cell = headerRow.createCell(j);
+                cell.setCellValue(templateFieldNameInSheet.get(j));
                 cell.setCellStyle(headerStyle);
             }
             // 自动调整列宽
-            for (int i = 0; i < fields.size(); i++) {
-                sheet.autoSizeColumn(i);
+            for (int j = 0; j < templateFieldNameInSheet.size(); j++) {
+                sheet.autoSizeColumn(j);
             }
             workbook.write(out);
         } catch (IOException e) {

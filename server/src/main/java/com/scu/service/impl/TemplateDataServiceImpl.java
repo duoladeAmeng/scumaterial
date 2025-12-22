@@ -77,6 +77,7 @@ public class TemplateDataServiceImpl implements TemplateDataService {
                 for (int j = 0; j < lastCellNum; j++) {
                     Cell cell = dataRow.getCell(j);
                     String fieldName = headerRow.getCell(j).getStringCellValue();
+                    fieldName=fieldName.split("\\(")[0];
                     Object cellValue = getCellValue(cell);
 
                     TemplateDataDto dto = TemplateDataDto
