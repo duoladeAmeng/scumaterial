@@ -19,5 +19,5 @@ public class TemplateField {
     @Schema(description="字段名")
     private String fieldName;
     @Schema(description="字段数据类型 字符串，数组，日期......")
-    private Integer dataType;
+    private String dataType;
 }

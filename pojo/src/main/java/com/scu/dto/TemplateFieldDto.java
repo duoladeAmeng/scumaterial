@@ -11,5 +11,5 @@ public class TemplateFieldDto {
     @Schema(description="字段类别,对象，操作，结果")
     private Integer fieldCategory;
     @Schema(description="字段数据类型 字符串，数字，日期......")
-    private Integer dataType;
+    private String fieldDataType;
 }

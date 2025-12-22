@@ -103,6 +103,7 @@ public class TemplateServiceImpl extends ServiceImpl<TemplateMapper, Template> i
      * @param templateDto 模板信息
      */
     @Override
+    @Transactional
     public void createTemplate(TemplateDto templateDto) {
         // 获取模板名, 如果模板名已存在则抛出异常
         String templateName = templateDto.getName();

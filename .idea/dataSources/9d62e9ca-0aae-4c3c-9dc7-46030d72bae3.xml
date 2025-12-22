@@ -910,7 +910,7 @@
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <Current>1</Current>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2025-12-18.08:42:21</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-12-18.09:22:22</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="289" parent="1" name="mysql.infoschema">
@@ -937,34 +937,34 @@
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="294" parent="288" name="dynamic_table_metadata">
-      <DetailsLevel>3</DetailsLevel>
-      <Engine>InnoDB</Engine>
-      <CollationName>utf8mb4_0900_ai_ci</CollationName>
-    </table>
-    <table id="295" parent="288" name="template">
+    <table id="294" parent="288" name="template">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <Options>row_format
 DYNAMIC</Options>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="296" parent="288" name="template_category">
+    <table id="295" parent="288" name="template_category">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="297" parent="288" name="template_data_6">
+    <table id="296" parent="288" name="template_data_6">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="298" parent="288" name="template_field">
+    <table id="297" parent="288" name="template_field">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="299" parent="288" name="template_field_data_type">
+    <table id="298" parent="288" name="template_field_data_type">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="299" parent="288" name="template_field_data_type_enum">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
@@ -1019,112 +1019,113 @@ DYNAMIC</Options>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="309" parent="294" name="id">
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StoredType>bigint|0s</StoredType>
-    </column>
-    <column id="310" parent="294" name="template_id">
-      <Position>2</Position>
-      <StoredType>bigint|0s</StoredType>
-    </column>
-    <column id="311" parent="294" name="create_time">
-      <Position>3</Position>
-      <StoredType>datetime|0s</StoredType>
-    </column>
-    <column id="312" parent="294" name="update_time">
-      <Position>4</Position>
-      <StoredType>datetime|0s</StoredType>
-    </column>
-    <column id="313" parent="294" name="table_name">
-      <Position>5</Position>
-      <StoredType>varchar(100)|0s</StoredType>
-    </column>
-    <column id="314" parent="294" name="description">
-      <Position>6</Position>
-      <StoredType>varchar(100)|0s</StoredType>
-    </column>
-    <index id="315" parent="294" name="PRIMARY">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <key id="316" parent="294" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="317" parent="295" name="id">
       <AutoIncrement>6</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="318" parent="295" name="name">
+    <column id="310" parent="294" name="name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="319" parent="295" name="description">
+    <column id="311" parent="294" name="description">
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="320" parent="295" name="create_time">
+    <column id="312" parent="294" name="create_time">
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="321" parent="295" name="update_time">
+    <column id="313" parent="294" name="update_time">
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
       <Position>5</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="322" parent="295" name="creator">
+    <column id="314" parent="294" name="creator">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="323" parent="295" name="category_id">
+    <column id="315" parent="294" name="category_id">
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="324" parent="295" name="state">
+    <column id="316" parent="294" name="state">
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <index id="325" parent="295" name="PRIMARY">
+    <index id="317" parent="294" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="326" parent="295" name="PRIMARY">
+    <key id="318" parent="294" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="327" parent="296" name="id">
+    <column id="319" parent="295" name="id">
       <AutoIncrement>97</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="328" parent="296" name="category_name">
+    <column id="320" parent="295" name="category_name">
       <Position>2</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="329" parent="296" name="sup_level">
+    <column id="321" parent="295" name="sup_level">
       <Comment>该分类的上级分类，-1表示顶级类别</Comment>
       <Position>3</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="330" parent="296" name="create_time">
+    <column id="322" parent="295" name="create_time">
       <Position>4</Position>
       <StoredType>datetime|0s</StoredType>
+    </column>
+    <index id="323" parent="295" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="324" parent="295" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="325" parent="296" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="326" parent="296" name="实验对象">
+      <Position>2</Position>
+      <StoredType>varchar(100)|0s</StoredType>
+    </column>
+    <column id="327" parent="296" name="数量">
+      <Position>3</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="328" parent="296" name="操作人">
+      <Position>4</Position>
+      <StoredType>varchar(100)|0s</StoredType>
+    </column>
+    <column id="329" parent="296" name="实验操作">
+      <Position>5</Position>
+      <StoredType>varchar(100)|0s</StoredType>
+    </column>
+    <column id="330" parent="296" name="实验结果">
+      <Position>6</Position>
+      <StoredType>varchar(100)|0s</StoredType>
     </column>
     <index id="331" parent="296" name="PRIMARY">
       <ColNames>id</ColNames>
@@ -1137,135 +1138,129 @@ DYNAMIC</Options>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="333" parent="297" name="id">
-      <AutoIncrement>1</AutoIncrement>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StoredType>bigint|0s</StoredType>
-    </column>
-    <column id="334" parent="297" name="实验对象">
-      <Position>2</Position>
-      <StoredType>varchar(100)|0s</StoredType>
-    </column>
-    <column id="335" parent="297" name="数量">
-      <Position>3</Position>
-      <StoredType>bigint|0s</StoredType>
-    </column>
-    <column id="336" parent="297" name="操作人">
-      <Position>4</Position>
-      <StoredType>varchar(100)|0s</StoredType>
-    </column>
-    <column id="337" parent="297" name="实验操作">
-      <Position>5</Position>
-      <StoredType>varchar(100)|0s</StoredType>
-    </column>
-    <column id="338" parent="297" name="实验结果">
-      <Position>6</Position>
-      <StoredType>varchar(100)|0s</StoredType>
-    </column>
-    <index id="339" parent="297" name="PRIMARY">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <key id="340" parent="297" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="341" parent="298" name="id">
       <AutoIncrement>7</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="342" parent="298" name="template_id">
+    <column id="334" parent="297" name="template_id">
       <Position>2</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="343" parent="298" name="field_category">
+    <column id="335" parent="297" name="field_category">
       <Comment>对象 操作 结果</Comment>
       <Position>3</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="344" parent="298" name="field_name">
+    <column id="336" parent="297" name="field_name">
       <Position>4</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="345" parent="298" name="data_type">
+    <column id="337" parent="297" name="data_type">
       <Comment>数据类型</Comment>
       <Position>5</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <index id="346" parent="298" name="PRIMARY">
+    <index id="338" parent="297" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="347" parent="298" name="PRIMARY">
+    <key id="339" parent="297" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="348" parent="299" name="id">
+    <column id="340" parent="298" name="id">
       <AutoIncrement>1</AutoIncrement>
       <Comment>模板字段类型的id</Comment>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="349" parent="299" name="name">
+    <column id="341" parent="298" name="name">
       <Comment>模板字段类型的名称</Comment>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="350" parent="299" name="isenum">
-      <Comment>是否是枚举类型</Comment>
+    <column id="342" parent="298" name="sql_type">
+      <Comment>在数据库中对应的类型</Comment>
       <Position>3</Position>
-      <StoredType>int|0s</StoredType>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <index id="351" parent="299" name="PRIMARY">
+    <index id="343" parent="298" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="352" parent="299" name="PRIMARY">
+    <key id="344" parent="298" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="353" parent="300" name="id">
+    <column id="345" parent="299" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="346" parent="299" name="name">
+      <Comment>该枚举类型的名称</Comment>
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="347" parent="299" name="sup">
+      <Comment>该枚举所属的上级的id，顶级为-1。比如SEASON是顶级，sup为-1，而SPRING的sup是SEASON</Comment>
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="348" parent="299" name="template_id">
+      <Position>4</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <index id="349" parent="299" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="350" parent="299" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="351" parent="300" name="id">
       <AutoIncrement>20</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="354" parent="300" name="username">
+    <column id="352" parent="300" name="username">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="355" parent="300" name="password">
+    <column id="353" parent="300" name="password">
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="356" parent="300" name="email">
+    <column id="354" parent="300" name="email">
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="357" parent="300" name="name">
+    <column id="355" parent="300" name="name">
       <Position>5</Position>
       <StoredType>varchar(64)|0s</StoredType>
     </column>
-    <column id="358" parent="300" name="role">
+    <column id="356" parent="300" name="role">
       <DefaultExpression>1</DefaultExpression>
       <Position>6</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <index id="359" parent="300" name="PRIMARY">
+    <index id="357" parent="300" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="360" parent="300" name="PRIMARY">
+    <key id="358" parent="300" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

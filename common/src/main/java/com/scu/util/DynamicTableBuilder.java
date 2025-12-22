@@ -54,8 +54,9 @@ public class DynamicTableBuilder {
         }
     }
 
-    private String getSqlType(Integer dataTypeCode) {
-        FieldDataTypeEnum typeEnum = FieldDataTypeEnum.getByCode(dataTypeCode);
+    private String getSqlType(String dataTypeName) {
+//        FieldDataTypeEnum typeEnum = FieldDataTypeEnum.getByCode(dataTypeCode);
+        FieldDataTypeEnum typeEnum = FieldDataTypeEnum.getByName(dataTypeName);
         return typeEnum != null ? typeEnum.getSqlType() : null;
     }
 }
