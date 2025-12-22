@@ -7,7 +7,7 @@ public enum FieldDataTypeEnum {
     INTEGER(1,"数值型", SqlTypeConstant.INT),
     FLOAT(2,"浮点型", SqlTypeConstant.FLOAT),
     RANGE(3,"范围型",SqlTypeConstant.VARCHAR_100),
-    Enumeration(4,"枚举型",SqlTypeConstant.INT),
+    Enumeration(4,"枚举型",SqlTypeConstant.VARCHAR_100),
     PICTURE(5,"图片型",SqlTypeConstant.VARCHAR_100),
     FILE(6,"文件型",SqlTypeConstant.VARCHAR_100),
     ARRAY(7,"数组型",SqlTypeConstant.VARCHAR_100),

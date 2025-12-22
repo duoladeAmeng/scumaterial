@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +29,17 @@ public class DynamicTableBuilder {
      * @param templateFields  所有模板字段（包含 OBJECT / OPERATION / RESULT）
      */
     public void createUnifiedTableForTemplate(Long templateId, List<TemplateField> templateFields) {
+        //特殊处理枚举类型
+        // 枚举类型：是否已经插入数据库，初始是false
+        List<TemplateField> enu_list = templateFields.stream()
+                .filter(field -> field.getDataType().equals(FieldDataTypeEnum.Enumeration.getName()))
+                .toList();
+        Map<String, Boolean> enumMap =new HashMap<>();
+        for (TemplateField templateField : enu_list) {
+            String enumName = templateField.getFieldName().split(":")[0];
+            enumMap.put(enumName, false);
+        }
+
         //表名
         String tableName = "template_data_" + templateId;
         //sql语句
@@ -41,7 +53,15 @@ public class DynamicTableBuilder {
                 log.warn("未知字段类型 code={}, 字段名={}, 跳过", field.getDataType(), fieldName);
                 continue;
             }
-            sql.append(", `").append(fieldName).append("` ").append(sqlType);
+            //枚举类型
+            if(field.getDataType().equals(FieldDataTypeEnum.Enumeration.getName())){
+                String enumName = fieldName.split(":")[0];
+                if(enumMap.get(enumName)) continue;
+                sql.append(", `").append(enumName).append("` ").append(sqlType);
+                enumMap.put(enumName, true);
+            }
+            else
+                sql.append(", `").append(fieldName).append("` ").append(sqlType);
         }
         sql.append(") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
         log.info("执行统一建表SQL: {}", sql);

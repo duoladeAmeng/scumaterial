@@ -5,12 +5,14 @@ import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.scu.constant.AuditResultConstant;
+import com.scu.constant.MessageConstant;
 import com.scu.constant.TemplateFieldCategoryConstant;
 import com.scu.constant.TemplateStateConstant;
 import com.scu.dto.AuditInfoDTO;
 import com.scu.entity.AuditLog;
 import com.scu.entity.Template;
 import com.scu.entity.TemplateField;
+import com.scu.exception.TemplateFieldInvalidException;
 import com.scu.mapper.AuditLogMapper;
 import com.scu.mapper.TemplateFieldMapper;
 import com.scu.mapper.TemplateMapper;
@@ -47,9 +49,14 @@ public class AuditServiceImpl  extends ServiceImpl<AuditLogMapper, AuditLog> imp
     @Override
     @Transactional
     public int auditNewTemplate(AuditInfoDTO auditInfoDTO) {
+        // 获取审核信息
+        // 审核结果
         Integer auditResult = auditInfoDTO.getAuditResult();
+        // 审核备注
         String note = auditInfoDTO.getNote();
+        // 模板id
         Long templateId = auditInfoDTO.getTemplateId();
+        // 审核员id
         Long auditorId = auditInfoDTO.getAuditorId();
         // 保存审核日志
         AuditLog auditLog = AuditLog.builder()
@@ -91,6 +98,9 @@ public class AuditServiceImpl  extends ServiceImpl<AuditLogMapper, AuditLog> imp
                         templateField ->
                                 templateField.getFieldCategory()== TemplateFieldCategoryConstant.RESULT
                 ).toList();
+        // 结果字段为空，且操作字段和对象字段不为空，则抛出异常
+        if(resultFields.isEmpty()&&(!operationFields.isEmpty()||!objFields.isEmpty()))
+            throw new TemplateFieldInvalidException(MessageConstant.TEMPLATE_FIELD_WITHOUT_RESULT_FIELD);
         List<TemplateField> allFields = Stream.of(objFields, operationFields, resultFields)
                 .flatMap(List::stream)
                 .toList();

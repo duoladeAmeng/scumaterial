@@ -12,4 +12,6 @@ public class MessageConstant {
     public static final String DELETE_FAILED ="删除失败";
     public static final String UPDATE_FAILED ="更新失败，请稍后重试";
     public static final String TEMPLATE_NAME_EXIST ="模板名称已存在";
+
+    public static final String TEMPLATE_FIELD_WITHOUT_RESULT_FIELD ="模板不存在结果类型字段";
 }
