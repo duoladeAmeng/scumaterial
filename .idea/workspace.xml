@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="实现 实际创建模板对应表时枚举字段的处理">
+    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="实现 实际上传模板数据时对应表时枚举字段的处理">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateFieldServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateFieldServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateFieldServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateFieldServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/TemplateDataDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/TemplateDataDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateDataDto$TemplateDataDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateDataDto$TemplateDataDtoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateDataDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateDataDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateDataController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateDataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateDataController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,42 +62,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.TestMap.test.executor": "Run",
-    "JUnit.TestTemplateCategory.executor": "Run",
-    "JUnit.TestTemplateCategory.testInsert.executor": "Run",
-    "JUnit.TestTemplateFieldDataType.testInsert.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.MaterialPlatformApplication.executor": "Run",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "E:/MyMindHive/MyProjects/MaterialSCU/MaterialPlatform/server/src/main/java/com/scu",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "E:/MyMindHive/MyProjects/MaterialSCU/MaterialPlatform/common/src/main/java/com/scu/Main.java",
-    "project.structure.last.edited": "项目",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.TestMap.test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestTemplateCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestTemplateCategory.testInsert.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestTemplateFieldDataType.testInsert.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.MaterialPlatformApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/MyMindHive/MyProjects/MaterialSCU/MaterialPlatform/server/src/main/java/com/scu&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;E:/MyMindHive/MyProjects/MaterialSCU/MaterialPlatform/common/src/main/java/com/scu/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\MyMindHive\MyProjects\MaterialSCU\MaterialPlatform\server\src\main\java\com\scu" />
@@ -209,7 +214,9 @@
       <workItem from="1765948674502" duration="13357000" />
       <workItem from="1765971165759" duration="10167000" />
       <workItem from="1766028598411" duration="16460000" />
-      <workItem from="1766399630576" duration="10304000" />
+      <workItem from="1766399630576" duration="11955000" />
+      <workItem from="1766461240356" duration="1531000" />
+      <workItem from="1766556372391" duration="373000" />
     </task>
     <task id="LOCAL-00001" summary="实现 根据模板分类获取模板 和 创建模板">
       <option name="closed" value="true" />
@@ -347,7 +354,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766406805082</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="实现 实际上传模板数据时对应表时枚举字段的处理">
+      <option name="closed" value="true" />
+      <created>1766410200217</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1766410200217</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,6 +386,7 @@
     <MESSAGE value="实现 模板字段数据类型接口" />
     <MESSAGE value="实现 新建模板请求特殊处理枚举类型" />
     <MESSAGE value="实现 实际创建模板对应表时枚举字段的处理" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现 实际创建模板对应表时枚举字段的处理" />
+    <MESSAGE value="实现 实际上传模板数据时对应表时枚举字段的处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现 实际上传模板数据时对应表时枚举字段的处理" />
   </component>
 </project>

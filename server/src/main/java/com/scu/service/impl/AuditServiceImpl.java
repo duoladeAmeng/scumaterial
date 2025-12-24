@@ -98,9 +98,9 @@ public class AuditServiceImpl  extends ServiceImpl<AuditLogMapper, AuditLog> imp
                         templateField ->
                                 templateField.getFieldCategory()== TemplateFieldCategoryConstant.RESULT
                 ).toList();
-        // 结果字段为空，且操作字段和对象字段不为空，则抛出异常
-        if(resultFields.isEmpty()&&(!operationFields.isEmpty()||!objFields.isEmpty()))
-            throw new TemplateFieldInvalidException(MessageConstant.TEMPLATE_FIELD_WITHOUT_RESULT_FIELD);
+        // 有结果字段，但是操作字段或对象字段为空，则抛出异常
+        if(!resultFields.isEmpty()&&(operationFields.isEmpty()||objFields.isEmpty()))
+            throw new TemplateFieldInvalidException(MessageConstant.TEMPLATE_FIELD_ONLY_HAVE_RESULT_FIELD);
         List<TemplateField> allFields = Stream.of(objFields, operationFields, resultFields)
                 .flatMap(List::stream)
                 .toList();

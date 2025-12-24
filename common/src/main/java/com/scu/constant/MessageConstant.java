@@ -13,5 +13,5 @@ public class MessageConstant {
     public static final String UPDATE_FAILED ="更新失败，请稍后重试";
     public static final String TEMPLATE_NAME_EXIST ="模板名称已存在";
 
-    public static final String TEMPLATE_FIELD_WITHOUT_RESULT_FIELD ="模板不存在结果类型字段";
+    public static final String TEMPLATE_FIELD_ONLY_HAVE_RESULT_FIELD ="存在结果字段，但对象或操作字段不存在" ;
 }

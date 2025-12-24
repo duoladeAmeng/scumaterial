@@ -12,7 +12,9 @@ import com.scu.dto.TemplateDto;
 import com.scu.entity.AuditLog;
 import com.scu.entity.Template;
 import com.scu.entity.TemplateField;
+import com.scu.entity.TemplateFieldDataTypeEnum;
 import com.scu.exception.TemplateExistException;
+import com.scu.mapper.TemplateFieldDataTypeEnumMapper;
 import com.scu.mapper.TemplateMapper;
 import com.scu.service.AuditService;
 import com.scu.service.TemplateFieldService;
@@ -36,6 +38,10 @@ public class TemplateServiceImpl extends ServiceImpl<TemplateMapper, Template> i
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private TemplateFieldDataTypeEnumMapper templateFieldDataTypeEnumMapper;
+
     /**
      * 根据类别id获取模板
      * @param categoryId 类别id
@@ -142,6 +148,11 @@ public class TemplateServiceImpl extends ServiceImpl<TemplateMapper, Template> i
              //删除模板对应的表
             String tableName = "template_data_" + templateId;
             jdbcTemplate.execute("DROP TABLE IF EXISTS " + tableName);
+            //删除模板对应的枚举字段
+            templateFieldDataTypeEnumMapper.delete(
+                    Wrappers.lambdaQuery(TemplateFieldDataTypeEnum.class)
+                    .eq(TemplateFieldDataTypeEnum::getTemplateId, templateId)
+            );
         }
     }
 

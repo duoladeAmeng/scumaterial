@@ -23,7 +23,7 @@ public class TemplateDataController {
     @Operation(summary = "添加模板数据单条方式")
     @Parameter(name = "templateDataDtos",description = "模板数据对象列表")
     @PostMapping("/addATemplateData")
-    public Result addATemplateData(@RequestBody List<TemplateDataDto> templateDataDtos){
+    public Result addATemplateData(@RequestBody List<TemplateDataDto> templateDataDtos,List<MultipartFile>  file){
         templateDataService.saveTemplateDataSingle(templateDataDtos);
         return Result.success();
     }
