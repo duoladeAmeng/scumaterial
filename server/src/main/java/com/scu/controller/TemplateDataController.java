@@ -1,15 +1,28 @@
 package com.scu.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.scu.dto.FileMetaDto;
 import com.scu.dto.TemplateDataDto;
 import com.scu.result.Result;
 import com.scu.service.TemplateDataService;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Encoding;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -21,19 +34,31 @@ public class TemplateDataController {
     private TemplateDataService templateDataService;
 
     @Operation(summary = "添加模板数据单条方式")
-    @Parameter(name = "templateDataDtos",description = "模板数据对象列表")
-    @PostMapping("/addATemplateData")
-    public Result addATemplateData(@RequestBody List<TemplateDataDto> templateDataDtos,List<MultipartFile>  file){
-        templateDataService.saveTemplateDataSingle(templateDataDtos);
+    @PostMapping(value = "/addATemplateData")
+    public Result addATemplateData_new ( @RequestPart("templateData") String templateData,
+                                         @RequestPart(value = "files",required = false) List<MultipartFile> files) throws JsonProcessingException {
+        templateDataService.saveTemplateDataSingle(templateData, files);
         return Result.success();
     }
 
-    @Operation(summary = "添加模板数据批量方式")
-    @Parameter(name = "file",description = "模板数据文件")
-    @Parameter(name = "templateId",description = "模板id")
+
+//    @Operation(summary = "添加模板数据批量方式")
+//    @Parameter(name = "file",description = "模板数据文件")
+//    @Parameter(name = "templateId",description = "模板id")
+//    @PostMapping("/addTemplateDataBatch")
+//    public Result addTemplateDataBatch(MultipartFile  file,@RequestParam("templateId") Long templateId){
+//        templateDataService.saveTemplateDataBatch(file,templateId);
+//        return Result.success();
+//    }
+
+
     @PostMapping("/addTemplateDataBatch")
-    public Result addTemplateDataBatch(MultipartFile  file,@RequestParam("templateId") Long templateId){
-        templateDataService.saveTemplateDataBatch(file,templateId);
+    public Result addTemplateDataBatchNew(@RequestPart("excel") MultipartFile excel,@RequestPart("files")List<MultipartFile> files,@RequestPart("templateId") Long templateId) throws IOException {
+
+        templateDataService.saveTemplateDataBatch(excel,files,templateId);
+
         return Result.success();
     }
+
+
 }

@@ -18,7 +18,6 @@ import com.scu.mapper.TemplateFieldMapper;
 import com.scu.mapper.TemplateMapper;
 import com.scu.service.AuditService;
 import com.scu.util.DynamicTableBuilder;
-import com.scu.util.TableOpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

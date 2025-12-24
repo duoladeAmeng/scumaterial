@@ -4,17 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="实现 实际上传模板数据时对应表时枚举字段的处理">
+    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="实现 带有文件的模板数据上传">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/util/GridFsUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/target/classes/com/scu/util/GridFsUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/FileMetaDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/FileMetaDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/scu/TestMongo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/scu/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/target/test-classes/com/scu/TestMongo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/MessageConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/scu/util/TableOpUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/scu/constant/MessageConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/scu/constant/MessageConstant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/scu/util/TableOpUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/TemplateDataDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/TemplateDataDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateDataDto$TemplateDataDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateDataDto$TemplateDataDtoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateDataDto$TemplateDataDtoBuilder.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateDataDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/TemplateDataDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/config/AppConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateDataController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateDataService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/AuditServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/AuditServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/config/AppConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/config/AppConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateDataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateDataController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateDataService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/AuditServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/AuditServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +87,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;JUnit.TestMap.test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestMongo.test.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TestTemplateCategory.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TestTemplateCategory.testInsert.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TestTemplateFieldDataType.testInsert.executor&quot;: &quot;Run&quot;,
@@ -120,7 +143,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestTemplateCategory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestMongo.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -129,8 +152,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.scu" />
-      <option name="MAIN_CLASS_NAME" value="com.scu.TestTemplateCategory" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="com.scu.TestMongo" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -183,10 +207,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.MaterialPlatformApplication" />
+        <item itemvalue="JUnit.TestMongo.test" />
         <item itemvalue="JUnit.TestMap.test" />
         <item itemvalue="JUnit.TestTemplateFieldDataType.testInsert" />
         <item itemvalue="JUnit.TestTemplateCategory.testInsert" />
-        <item itemvalue="JUnit.TestTemplateCategory" />
       </list>
     </recent_temporary>
   </component>
@@ -216,7 +240,10 @@
       <workItem from="1766028598411" duration="16460000" />
       <workItem from="1766399630576" duration="11955000" />
       <workItem from="1766461240356" duration="1531000" />
-      <workItem from="1766556372391" duration="373000" />
+      <workItem from="1766556372391" duration="1369000" />
+      <workItem from="1766565755544" duration="5700000" />
+      <workItem from="1766575485063" duration="9744000" />
+      <workItem from="1766591510470" duration="5000" />
     </task>
     <task id="LOCAL-00001" summary="实现 根据模板分类获取模板 和 创建模板">
       <option name="closed" value="true" />
@@ -362,7 +389,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766410200217</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="更正 模板审核判断逻辑为：有结果字段，但是操作字段或对象字段为空，则抛出异常">
+      <option name="closed" value="true" />
+      <created>1766557046797</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1766557046798</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,6 +422,8 @@
     <MESSAGE value="实现 新建模板请求特殊处理枚举类型" />
     <MESSAGE value="实现 实际创建模板对应表时枚举字段的处理" />
     <MESSAGE value="实现 实际上传模板数据时对应表时枚举字段的处理" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现 实际上传模板数据时对应表时枚举字段的处理" />
+    <MESSAGE value="更正 模板审核判断逻辑为：有结果字段，但是操作字段或对象字段为空，则抛出异常" />
+    <MESSAGE value="实现 带有文件的模板数据上传" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现 带有文件的模板数据上传" />
   </component>
 </project>

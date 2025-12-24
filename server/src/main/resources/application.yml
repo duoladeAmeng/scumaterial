@@ -13,10 +13,7 @@ spring:
     password: ${dyc.datasource.password}
   data:
     mongodb:
-      uri: mongodb://mongo:mongo@192.168.26.72:27017/picture
-#      database: picture
-#      host: 192.168.26.72
-#      port: 27017
+      uri: mongodb://${dyc.mongodb.host}:${dyc.mongodb.port}/${dyc.mongodb.database}
 
 # springdoc-openapi项目配置
 springdoc:

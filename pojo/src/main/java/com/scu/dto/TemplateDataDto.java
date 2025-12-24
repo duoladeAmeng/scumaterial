@@ -3,11 +3,13 @@ package com.scu.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @Schema(description = "模板实际数据DTO")
+@NoArgsConstructor
 public class TemplateDataDto {
+
     @Schema(description = "数据所属的模板id")
     private Long templateId;
     @Schema(description = "该字段的数据类型")
