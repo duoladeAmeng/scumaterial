@@ -133,10 +133,13 @@ public class TemplateDataServiceImpl implements TemplateDataService {
             for (int j = 0; j < lastCellNum; j++) {// 获取字段名
                 String fieldName = headerRow.getCell(j).getStringCellValue();
                 LambdaQueryWrapper<TemplateField> wrapper = Wrappers.lambdaQuery(TemplateField.class)
-                        .eq(TemplateField::getFieldName, fieldName)
-                        .eq(TemplateField::getTemplateId, templateId);
-                TemplateField templateField = templateFieldService.getOne(wrapper);
-                fieldDataTypeMap.put(fieldName, templateField.getDataType());
+                        .likeRight(TemplateField::getFieldName, fieldName.split("\\(")[0])
+                        .eq(TemplateField::getTemplateId, templateId)
+                        ;
+                System.out.println(fieldName.split("\\(")[0]);
+                System.out.println(templateId);
+                TemplateField templateField = templateFieldService.list(wrapper).get(0);
+                fieldDataTypeMap.put(fieldName.split("\\(")[0], templateField.getDataType());
             }
 
         } catch (IOException e) {

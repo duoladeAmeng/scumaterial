@@ -53,7 +53,7 @@ public class TemplateDataController {
 
 
     @PostMapping("/addTemplateDataBatch")
-    public Result addTemplateDataBatchNew(@RequestPart("excel") MultipartFile excel,@RequestPart("files")List<MultipartFile> files,@RequestPart("templateId") Long templateId) throws IOException {
+    public Result addTemplateDataBatchNew(@RequestPart("excel") MultipartFile excel,@RequestPart("files")List<MultipartFile> files,@RequestParam("templateId") Long templateId) throws IOException {
 
         templateDataService.saveTemplateDataBatch(excel,files,templateId);
 
