@@ -14,6 +14,8 @@ spring:
   data:
     mongodb:
       uri: mongodb://${dyc.mongodb.host}:${dyc.mongodb.port}/${dyc.mongodb.database}
+      # 实验室的mongodb
+#      uri: mongodb://${sys.mongodb.username}:${sys.mongodb.password}@${sys.mongodb.host}:${sys.mongodb.port}/${sys.mongodb.database}
 
 # springdoc-openapi项目配置
 springdoc:

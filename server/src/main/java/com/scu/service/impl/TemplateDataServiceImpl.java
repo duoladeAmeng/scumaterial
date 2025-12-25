@@ -6,12 +6,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.scu.dto.TemplateDataDto;
+import com.scu.entity.FileMetaData;
 import com.scu.entity.TemplateField;
 import com.scu.enu.FieldDataTypeEnum;
+import com.scu.service.FileMetaDataService;
 import com.scu.service.TemplateDataService;
 import com.scu.service.TemplateFieldService;
 import com.scu.util.GridFsUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -33,6 +37,10 @@ public class TemplateDataServiceImpl implements TemplateDataService {
 
     @Autowired
     private TemplateFieldService templateFieldService;
+
+    @Autowired
+    private FileMetaDataService fileMetaDataService;
+
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -94,8 +102,26 @@ public class TemplateDataServiceImpl implements TemplateDataService {
             Integer fileIndex = fileIndexMap.get(fileName);
             MultipartFile multipartFile = files.get(fileIndex);
             try {
+                //计算文件哈希
+                String contentHash;
+                contentHash = DigestUtils.sha256Hex(multipartFile.getInputStream());
+                //查找文件哈希是否存在
+                FileMetaData fileMetaData = fileMetaDataService.findByFileHash(contentHash);
+                //存在
+                if (fileMetaData!=null) {
+                    columnValueMap.put(fieldName, fileMetaData.getFileMongoId());
+                    continue;
+                }
+                //不存在
+                //保存文件
                 String fileMongoId = gridFsUtils.upload(fileName, multipartFile.getInputStream());
+                //保存文件元数据
                 columnValueMap.put(fieldName, fileMongoId);
+                //保存文件哈希数据
+                FileMetaData metaData = new FileMetaData();
+                metaData.setFileMongoId(fileMongoId);
+                metaData.setFileHash(contentHash);
+                fileMetaDataService.save(metaData);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -191,56 +217,6 @@ public class TemplateDataServiceImpl implements TemplateDataService {
         }
         return templateDataDtoList_List;
     }
-
-
-
-    @Transactional
-//    @Override
-    public void saveTemplateDataBatch(MultipartFile file, Long templateId) {
-        try {
-            Workbook workbook = new XSSFWorkbook(file.getInputStream());
-            Sheet sheet = workbook.getSheetAt(0);
-
-            // 获取表头行
-            Row headerRow = sheet.getRow(0);
-            int lastCellNum = headerRow.getLastCellNum();
-
-            // 读取所有数据行
-            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
-                Row dataRow = sheet.getRow(i);
-                if (dataRow == null) continue;
-
-                // 构造TemplateDataDto列表
-                List<TemplateDataDto> dtos = new ArrayList<>();
-
-
-                for (int j = 0; j < lastCellNum; j++) {
-                    Cell cell = dataRow.getCell(j);
-                    String fieldName = headerRow.getCell(j).getStringCellValue();
-                    fieldName=fieldName.split("\\(")[0];
-                    Object cellValue = getCellValue(cell);
-
-                    TemplateDataDto dto = new TemplateDataDto();
-                    dto.setTemplateId(templateId);
-                    dto.setFieldName(fieldName);
-                    dto.setFieldValue(cellValue);
-
-                    dtos.add(dto);
-
-                }
-
-                // 调用已有的单条保存方法
-                if (!dtos.isEmpty()) {
-//                    saveTemplateDataSingle(dtos);
-                }
-            }
-
-            workbook.close();
-        } catch (Exception e) {
-            throw new RuntimeException("批量导入模板数据失败", e);
-        }
-    }
-
 
 
     private Object getCellValue(Cell cell) {

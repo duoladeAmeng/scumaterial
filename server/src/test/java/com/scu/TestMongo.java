@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -17,6 +16,8 @@ public class TestMongo {
 
     @Autowired
     GridFsUtils gridFsUtils;
+    @Autowired
+    private FileMetaDataRepository fileMetaDataRepository;
 
     @Test
     public void test() throws IOException {
@@ -43,4 +44,11 @@ public class TestMongo {
         }
 
     }
+
+
+    @Test
+    public void test2(){
+        fileMetaDataRepository
+    }
+
 }
