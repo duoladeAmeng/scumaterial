@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="实现 带有文件的模板数据批量上传">
+    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="修复bug 批量上传时枚举类型字段查询逻辑有误">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateDataController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/scu/TestMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/com/scu/TestMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateDataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateDataController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/test-classes/com/scu/TestMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/test-classes/com/scu/TestMap.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +221,8 @@
       <workItem from="1766556372391" duration="1369000" />
       <workItem from="1766565755544" duration="5700000" />
       <workItem from="1766575485063" duration="9744000" />
-      <workItem from="1766591510470" duration="1760000" />
+      <workItem from="1766591510470" duration="2183000" />
+      <workItem from="1766630791363" duration="5397000" />
     </task>
     <task id="LOCAL-00001" summary="实现 根据模板分类获取模板 和 创建模板">
       <option name="closed" value="true" />
@@ -380,7 +384,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766591559149</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="修复bug 批量上传时枚举类型字段查询逻辑有误">
+      <option name="closed" value="true" />
+      <created>1766593591598</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1766593591598</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,6 +420,7 @@
     <MESSAGE value="更正 模板审核判断逻辑为：有结果字段，但是操作字段或对象字段为空，则抛出异常" />
     <MESSAGE value="实现 带有文件的模板数据上传" />
     <MESSAGE value="实现 带有文件的模板数据批量上传" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现 带有文件的模板数据批量上传" />
+    <MESSAGE value="修复bug 批量上传时枚举类型字段查询逻辑有误" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复bug 批量上传时枚举类型字段查询逻辑有误" />
   </component>
 </project>

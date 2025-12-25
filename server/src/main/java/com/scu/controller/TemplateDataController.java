@@ -41,17 +41,6 @@ public class TemplateDataController {
         return Result.success();
     }
 
-
-//    @Operation(summary = "添加模板数据批量方式")
-//    @Parameter(name = "file",description = "模板数据文件")
-//    @Parameter(name = "templateId",description = "模板id")
-//    @PostMapping("/addTemplateDataBatch")
-//    public Result addTemplateDataBatch(MultipartFile  file,@RequestParam("templateId") Long templateId){
-//        templateDataService.saveTemplateDataBatch(file,templateId);
-//        return Result.success();
-//    }
-
-
     @PostMapping("/addTemplateDataBatch")
     public Result addTemplateDataBatchNew(@RequestPart("excel") MultipartFile excel,@RequestPart("files")List<MultipartFile> files,@RequestParam("templateId") Long templateId) throws IOException {
 

@@ -11,3 +11,10 @@ dyc:
     host: localhost
     port: 27017
     database: picture
+sys:
+  mongodb:
+    host: 192.168.26.72
+    port: 27017
+    database: picture
+    username: mongo
+    password: mongo
