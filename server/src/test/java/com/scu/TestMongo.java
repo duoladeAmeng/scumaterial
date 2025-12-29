@@ -16,8 +16,7 @@ public class TestMongo {
 
     @Autowired
     GridFsUtils gridFsUtils;
-    @Autowired
-    private FileMetaDataRepository fileMetaDataRepository;
+
 
     @Test
     public void test() throws IOException {
@@ -46,9 +45,6 @@ public class TestMongo {
     }
 
 
-    @Test
-    public void test2(){
-        fileMetaDataRepository
-    }
+
 
 }

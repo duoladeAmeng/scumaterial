@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="修复bug 批量上传时枚举类型字段查询逻辑有误">
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/scu/entity/FileMetaData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/FileMetaDataService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/FileMetaDataServiceImpl.java" afterDir="false" />
+    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="实现 文件上传计算文件哈希，同样文件(即使名称不同)只存一份">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/MessageConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/scu/util/DynamicTableBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/util/TableOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/AuditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/AuditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/AuditServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/AuditServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/test/java/com/scu/TestMongo.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/com/scu/TestMongo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateDataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateDataController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +220,9 @@
       <workItem from="1766575485063" duration="9744000" />
       <workItem from="1766591510470" duration="2183000" />
       <workItem from="1766630791363" duration="7021000" />
-      <workItem from="1766664402795" duration="2129000" />
+      <workItem from="1766664402795" duration="3227000" />
+      <workItem from="1766817109374" duration="3612000" />
+      <workItem from="1766986263262" duration="1198000" />
     </task>
     <task id="LOCAL-00001" summary="实现 根据模板分类获取模板 和 创建模板">
       <option name="closed" value="true" />
@@ -403,7 +400,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766647953610</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="实现 文件上传计算文件哈希，同样文件(即使名称不同)只存一份">
+      <option name="closed" value="true" />
+      <created>1766666639534</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1766666639534</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,6 +437,7 @@
     <MESSAGE value="实现 带有文件的模板数据上传" />
     <MESSAGE value="实现 带有文件的模板数据批量上传" />
     <MESSAGE value="修复bug 批量上传时枚举类型字段查询逻辑有误" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复bug 批量上传时枚举类型字段查询逻辑有误" />
+    <MESSAGE value="实现 文件上传计算文件哈希，同样文件(即使名称不同)只存一份" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现 文件上传计算文件哈希，同样文件(即使名称不同)只存一份" />
   </component>
 </project>

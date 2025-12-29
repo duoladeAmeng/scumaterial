@@ -17,7 +17,7 @@ import com.scu.mapper.AuditLogMapper;
 import com.scu.mapper.TemplateFieldMapper;
 import com.scu.mapper.TemplateMapper;
 import com.scu.service.AuditService;
-import com.scu.util.DynamicTableBuilder;
+import com.scu.util.TableOperator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,7 +39,7 @@ public class AuditServiceImpl  extends ServiceImpl<AuditLogMapper, AuditLog> imp
     private TemplateMapper templateMapper;
 
     @Autowired
-    private DynamicTableBuilder dynamicTableBuilder;
+    private TableOperator tableOperator;
 
     /**
      * 审核员审核新建模板
@@ -98,13 +98,13 @@ public class AuditServiceImpl  extends ServiceImpl<AuditLogMapper, AuditLog> imp
                                 templateField.getFieldCategory()== TemplateFieldCategoryConstant.RESULT
                 ).toList();
         // 有结果字段，但是操作字段或对象字段为空，则抛出异常
-        if(!resultFields.isEmpty()&&(operationFields.isEmpty()||objFields.isEmpty()))
-            throw new TemplateFieldInvalidException(MessageConstant.TEMPLATE_FIELD_ONLY_HAVE_RESULT_FIELD);
+//        if(!resultFields.isEmpty()&&(operationFields.isEmpty()||objFields.isEmpty()))
+//            throw new TemplateFieldInvalidException(MessageConstant.TEMPLATE_FIELD_ONLY_HAVE_RESULT_FIELD);
         List<TemplateField> allFields = Stream.of(objFields, operationFields, resultFields)
                 .flatMap(List::stream)
                 .toList();
         // 建立模板对应的数据库表
-        dynamicTableBuilder.createUnifiedTableForTemplate(templateId, allFields);
+        tableOperator.createUnifiedTableForTemplate(templateId, allFields);
         // 更新模板状态
         LambdaUpdateWrapper<Template> updateWrapper = Wrappers.lambdaUpdate(Template.class)
                 .eq(Template::getId, templateId)

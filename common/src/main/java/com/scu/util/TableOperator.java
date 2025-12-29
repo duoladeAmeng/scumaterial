@@ -1,24 +1,20 @@
 package com.scu.util;
 
-import com.scu.constant.TemplateFieldCategoryConstant;
 import com.scu.entity.TemplateField;
 import com.scu.enu.FieldDataTypeEnum;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class DynamicTableBuilder {
+public class TableOperator {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -74,9 +70,22 @@ public class DynamicTableBuilder {
         }
     }
 
+    //获取字段类型对应的sql类型
     private String getSqlType(String dataTypeName) {
 //        FieldDataTypeEnum typeEnum = FieldDataTypeEnum.getByCode(dataTypeCode);
         FieldDataTypeEnum typeEnum = FieldDataTypeEnum.getByName(dataTypeName);
         return typeEnum != null ? typeEnum.getSqlType() : null;
     }
+    //根据条件，查询指定数据
+    public List<Map<String, Object>> queryByCondation(Map<String,String>  condition){
+        String tableName = "template_data_" + condition.get("templateId");
+        StringBuilder sql = new StringBuilder("SELECT * FROM " + tableName + " WHERE ");
+        for (Map.Entry<String, String> entry : condition.entrySet()) {
+            if (!"templateId".equals(entry.getKey())) {
+                sql.append(entry.getKey()).append(" = '").append(entry.getValue()).append("' AND ");
+            }
+        }
+        return jdbcTemplate.queryForList(sql.toString());
+    }
+
 }
