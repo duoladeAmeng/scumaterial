@@ -49,5 +49,12 @@ public class TemplateDataController {
         return Result.success();
     }
 
+    @Operation(summary = "获取指定模板的所有待审核数据",description = "获取指定模板的所有待审核数据")
+    @GetMapping("/getTemplateData/{templateId}")
+    public Result getTemplateData(@Parameter(description = "模板id") @PathVariable Long templateId){
+//        String tableName="template_data_"+templateId;
+        return null;
+    }
+
 
 }

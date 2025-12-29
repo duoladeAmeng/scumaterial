@@ -2,7 +2,7 @@ package com.scu.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.scu.constant.TemplateStateConstant;
+import com.scu.constant.TemplateStatusConstant;
 import com.scu.dto.AuditInfoDTO;
 import com.scu.dto.TemplateDetailedInfoDto;
 import com.scu.entity.Template;
@@ -45,7 +45,7 @@ public class AuditController {
         // 获取所有待审核模板
         LambdaQueryWrapper<Template> wrapper =
                 Wrappers.lambdaQuery(Template.class)
-                .eq(Template::getState, TemplateStateConstant.UNAUDITED);
+                .eq(Template::getState, TemplateStatusConstant.UNAUDITED);
         List<Template> tmp_unaudited = templateService.list(wrapper);
         List<TemplateDetailedInfoDto> templateToAuditDtos=new ArrayList<>();
         for (Template template : tmp_unaudited){
@@ -62,12 +62,7 @@ public class AuditController {
         }
         return Result.success(templateToAuditDtos);
     }
-    @Operation(summary = "获取指定模板的所有待审核数据",description = "获取指定模板的所有待审核数据")
-    @GetMapping("/getTemplateData/{templateId}")
-    public Result getTemplateData(@Parameter(description = "模板id") @PathVariable Long templateId){
-        String tableName="template_data_"+templateId;
 
-    }
 
 
 

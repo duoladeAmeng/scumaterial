@@ -5,13 +5,10 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.scu.constant.MessageConstant;
-import com.scu.constant.TemplateFieldCategoryConstant;
-import com.scu.constant.TemplateStateConstant;
+import com.scu.constant.TemplateStatusConstant;
 import com.scu.dto.TemplateDetailedInfoDto;
 import com.scu.dto.TemplateDto;
-import com.scu.entity.AuditLog;
 import com.scu.entity.Template;
-import com.scu.entity.TemplateField;
 import com.scu.entity.TemplateFieldDataTypeEnum;
 import com.scu.exception.TemplateExistException;
 import com.scu.mapper.TemplateFieldDataTypeEnumMapper;
@@ -123,7 +120,7 @@ public class TemplateServiceImpl extends ServiceImpl<TemplateMapper, Template> i
         template.setCreateTime(LocalDateTime.now());
         template.setUpdateTime(LocalDateTime.now());
         // 设置模板状态 新创建的模板状态是未审核
-        template.setState(TemplateStateConstant.UNAUDITED);
+        template.setState(TemplateStatusConstant.UNAUDITED);
         System.out.println("保存前ID: " + template.getId());  // 打印为null
         // 保存模板
         this.save(template);

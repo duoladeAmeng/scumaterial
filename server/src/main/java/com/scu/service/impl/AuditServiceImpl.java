@@ -5,14 +5,12 @@ import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.scu.constant.AuditResultConstant;
-import com.scu.constant.MessageConstant;
 import com.scu.constant.TemplateFieldCategoryConstant;
-import com.scu.constant.TemplateStateConstant;
+import com.scu.constant.TemplateStatusConstant;
 import com.scu.dto.AuditInfoDTO;
 import com.scu.entity.AuditLog;
 import com.scu.entity.Template;
 import com.scu.entity.TemplateField;
-import com.scu.exception.TemplateFieldInvalidException;
 import com.scu.mapper.AuditLogMapper;
 import com.scu.mapper.TemplateFieldMapper;
 import com.scu.mapper.TemplateMapper;
@@ -108,7 +106,7 @@ public class AuditServiceImpl  extends ServiceImpl<AuditLogMapper, AuditLog> imp
         // 更新模板状态
         LambdaUpdateWrapper<Template> updateWrapper = Wrappers.lambdaUpdate(Template.class)
                 .eq(Template::getId, templateId)
-                .set(Template::getState, TemplateStateConstant.AUDITED);
+                .set(Template::getState, TemplateStatusConstant.AUDITED);
         templateMapper.update(updateWrapper);
         return 1;
     }

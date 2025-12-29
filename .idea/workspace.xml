@@ -4,14 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="实现 文件上传计算文件哈希，同样文件(即使名称不同)只存一份">
+    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="更正 创建模板的逻辑改为可以只有结果字段">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/TemplateDataStatusConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/mapper/TemplateDataMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/resources/mappers/TemplateDataMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/scu/TestTemplateData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/MessageConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/scu/util/DynamicTableBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/util/TableOperator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/StatusConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/UserStatusConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/TemplateStateConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/TemplateStatusConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/UserRoleConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/constant/UserRoleConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/scu/util/TableOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/util/TableOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/scu/constant/MessageConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/scu/constant/MessageConstant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/scu/constant/StatusConstant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/scu/constant/UserRoleConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/scu/constant/UserRoleConstant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/scu/util/DynamicTableBuilder.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/AuditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/AuditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateDataController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateDataService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/AuditServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/AuditServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/scu/TestMongo.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/com/scu/TestMongo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/config/AppConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/config/AppConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateDataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateDataController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateDataService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/AuditServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/AuditServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/test-classes/com/scu/TestMongo.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/test-classes/com/scu/TestMongo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +43,7 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
+        <option value="mybatis-mapper" />
         <option value="Class" />
       </list>
     </option>
@@ -59,49 +80,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.TestMap.test.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestMongo.test.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestTemplateCategory.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestTemplateCategory.testInsert.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestTemplateFieldDataType.testInsert.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.MaterialPlatformApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/MyMindHive/MyProjects/MaterialSCU/MaterialPlatform/server/src/main/java/com/scu&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;E:/MyMindHive/MyProjects/MaterialSCU/MaterialPlatform/common/src/main/java/com/scu/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.TestMap.test.executor": "Run",
+    "JUnit.TestMongo.test.executor": "Run",
+    "JUnit.TestTemplateCategory.executor": "Run",
+    "JUnit.TestTemplateCategory.testInsert.executor": "Run",
+    "JUnit.TestTemplateData.testSELECT.executor": "Run",
+    "JUnit.TestTemplateFieldDataType.testInsert.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.MaterialPlatformApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "E:/MyMindHive/MyProjects/MaterialSCU/MaterialPlatform/server/src/main/java/com/scu",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "E:/MyMindHive/MyProjects/MaterialSCU/MaterialPlatform/common/src/main/java/com/scu/Main.java",
+    "project.structure.last.edited": "项目",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\MyMindHive\MyProjects\MaterialSCU\MaterialPlatform\server\src\main\java\com\scu" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.MaterialPlatformApplication">
+  <component name="RunManager" selected="JUnit.TestTemplateData.testSELECT">
     <configuration name="TestMap.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -134,7 +156,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestTemplateCategory.testInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestTemplateData.testSELECT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -143,8 +165,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.scu" />
-      <option name="MAIN_CLASS_NAME" value="com.scu.TestTemplateCategory" />
-      <option name="METHOD_NAME" value="testInsert" />
+      <option name="MAIN_CLASS_NAME" value="com.scu.TestTemplateData" />
+      <option name="METHOD_NAME" value="testSELECT" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -181,11 +203,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestTemplateData.testSELECT" />
         <item itemvalue="Spring Boot.MaterialPlatformApplication" />
         <item itemvalue="JUnit.TestMap.test" />
         <item itemvalue="JUnit.TestMongo.test" />
         <item itemvalue="JUnit.TestTemplateFieldDataType.testInsert" />
-        <item itemvalue="JUnit.TestTemplateCategory.testInsert" />
       </list>
     </recent_temporary>
   </component>
@@ -222,7 +244,7 @@
       <workItem from="1766630791363" duration="7021000" />
       <workItem from="1766664402795" duration="3227000" />
       <workItem from="1766817109374" duration="3612000" />
-      <workItem from="1766986263262" duration="1198000" />
+      <workItem from="1766986263262" duration="2428000" />
     </task>
     <task id="LOCAL-00001" summary="实现 根据模板分类获取模板 和 创建模板">
       <option name="closed" value="true" />
@@ -408,7 +430,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766666639534</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="更正 创建模板的逻辑改为可以只有结果字段">
+      <option name="closed" value="true" />
+      <created>1766987542838</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1766987542838</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,6 +468,7 @@
     <MESSAGE value="实现 带有文件的模板数据批量上传" />
     <MESSAGE value="修复bug 批量上传时枚举类型字段查询逻辑有误" />
     <MESSAGE value="实现 文件上传计算文件哈希，同样文件(即使名称不同)只存一份" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现 文件上传计算文件哈希，同样文件(即使名称不同)只存一份" />
+    <MESSAGE value="更正 创建模板的逻辑改为可以只有结果字段" />
+    <option name="LAST_COMMIT_MESSAGE" value="更正 创建模板的逻辑改为可以只有结果字段" />
   </component>
 </project>

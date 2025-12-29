@@ -13,6 +13,7 @@ import com.scu.service.FileMetaDataService;
 import com.scu.service.TemplateDataService;
 import com.scu.service.TemplateFieldService;
 import com.scu.util.GridFsUtils;
+import com.scu.util.TableOperator;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.poi.ss.usermodel.*;
@@ -40,6 +41,8 @@ public class TemplateDataServiceImpl implements TemplateDataService {
 
     @Autowired
     private FileMetaDataService fileMetaDataService;
+    @Autowired
+    private TableOperator tableOperator;
 
 
     private final JdbcTemplate jdbcTemplate;
@@ -148,6 +151,7 @@ public class TemplateDataServiceImpl implements TemplateDataService {
         }
 
     }
+
     // 获取 Excel 中各个字段的数据类型
     private Map<String,String> getFieldDataTypeMapFromExcel(MultipartFile excel,Long templateId) {
         Map<String,String> fieldDataTypeMap = new HashMap<>();
@@ -240,5 +244,14 @@ public class TemplateDataServiceImpl implements TemplateDataService {
             default:
                 return null;
         }
+    }
+    @Override
+    public List<TemplateDataDto> getAllAuditedTemplateData(Long templateId) {
+        return List.of();
+    }
+
+    @Override
+    public List<TemplateDataDto> getAllUnAuditedTemplateData(Long templateId) {
+        return List.of();
     }
 }

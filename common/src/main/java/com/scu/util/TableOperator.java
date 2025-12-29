@@ -1,5 +1,6 @@
 package com.scu.util;
 
+import com.scu.constant.SqlTypeConstant;
 import com.scu.entity.TemplateField;
 import com.scu.enu.FieldDataTypeEnum;
 import lombok.RequiredArgsConstructor;
@@ -59,6 +60,7 @@ public class TableOperator {
             else
                 sql.append(", `").append(fieldName).append("` ").append(sqlType);
         }
+        sql.append(", `status` "+ SqlTypeConstant.INT);//模板数据的状态
         sql.append(") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
         log.info("执行统一建表SQL: {}", sql);
         try {
