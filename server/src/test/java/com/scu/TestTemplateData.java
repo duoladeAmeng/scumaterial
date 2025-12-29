@@ -1,5 +1,6 @@
 package com.scu;
 
+import com.scu.mapper.TemplateDataMapper;
 import com.scu.util.TableOperator;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,15 +14,17 @@ import java.util.Map;
 public class TestTemplateData {
     @Autowired
     private TableOperator tableOperator;
+    @Autowired
+    private TemplateDataMapper templateDataMapper;
     @Test
     public void testSELECT(){
-        Map<String,String> condition = new HashMap<>();
-        condition.put("templateId", "19");
-        List<Map<String, Object>> maps = tableOperator.queryByCondation(condition);
-        for (int i=0;i<maps.size();i++){
-            Map<String, Object> stringObjectMap = maps.get(i);
-            System.out.println(stringObjectMap);
+        List<Map<String, Object>> auditedTemplateData = templateDataMapper.getAuditedTemplateData(20L);
+//        Map<String, Object> auditedTemplateData = templateDataMapper.getAllTemplateData(20L);
+        for (Map<String, Object> map:auditedTemplateData){
+            System.out.println(map);
         }
+
+//        templateDataMapper.tt(1L);
 
     }
 }

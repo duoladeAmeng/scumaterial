@@ -7,13 +7,13 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.scu.constant.AuditResultConstant;
 import com.scu.constant.TemplateFieldCategoryConstant;
 import com.scu.constant.TemplateStatusConstant;
-import com.scu.dto.AuditInfoDTO;
-import com.scu.entity.AuditLog;
+import com.scu.dto.TemplateAuditInfoDTO;
+import com.scu.dto.TemplateDataAuditInfoDTO;
+import com.scu.entity.TemplateAuditLog;
 import com.scu.entity.Template;
+import com.scu.entity.TemplateDataAuditLog;
 import com.scu.entity.TemplateField;
-import com.scu.mapper.AuditLogMapper;
-import com.scu.mapper.TemplateFieldMapper;
-import com.scu.mapper.TemplateMapper;
+import com.scu.mapper.*;
 import com.scu.service.AuditService;
 import com.scu.util.TableOperator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +25,12 @@ import java.util.List;
 import java.util.stream.Stream;
 
 @Service
-public class AuditServiceImpl  extends ServiceImpl<AuditLogMapper, AuditLog> implements AuditService {
+public class AuditServiceImpl  extends ServiceImpl<TemplateAuditLogMapper, TemplateAuditLog> implements AuditService {
 
     @Autowired
-    private AuditLogMapper auditLogMapper;
+    private TemplateAuditLogMapper templateAuditLogMapper;
+    @Autowired
+    private TemplateDataAuditLogMapper templateDataAuditLogMapper;
 
     @Autowired
     private TemplateFieldMapper templateFieldMapper;
@@ -38,32 +40,34 @@ public class AuditServiceImpl  extends ServiceImpl<AuditLogMapper, AuditLog> imp
 
     @Autowired
     private TableOperator tableOperator;
+    @Autowired
+    private TemplateDataMapper templateDataMapper;
 
     /**
      * 审核员审核新建模板
-     * @param auditInfoDTO
+     * @param templateAuditInfoDTO
      */
     @Override
     @Transactional
-    public int auditNewTemplate(AuditInfoDTO auditInfoDTO) {
+    public int auditNewTemplate(TemplateAuditInfoDTO templateAuditInfoDTO) {
         // 获取审核信息
         // 审核结果
-        Integer auditResult = auditInfoDTO.getAuditResult();
+        Integer auditResult = templateAuditInfoDTO.getAuditResult();
         // 审核备注
-        String note = auditInfoDTO.getNote();
+        String note = templateAuditInfoDTO.getNote();
         // 模板id
-        Long templateId = auditInfoDTO.getTemplateId();
+        Long templateId = templateAuditInfoDTO.getTemplateId();
         // 审核员id
-        Long auditorId = auditInfoDTO.getAuditorId();
+        Long auditorId = templateAuditInfoDTO.getAuditorId();
         // 保存审核日志
-        AuditLog auditLog = AuditLog.builder()
-                .auditorId(auditInfoDTO.getAuditorId())
-                .auditResult(auditInfoDTO.getAuditResult())
-                .note(auditInfoDTO.getNote())
-                .templateId(auditInfoDTO.getTemplateId())
+        TemplateAuditLog templateAuditLog = TemplateAuditLog.builder()
+                .auditorId(templateAuditInfoDTO.getAuditorId())
+                .auditResult(templateAuditInfoDTO.getAuditResult())
+                .note(templateAuditInfoDTO.getNote())
+                .templateId(templateAuditInfoDTO.getTemplateId())
                 .logDate(LocalDateTime.now())
                 .build();
-        auditLogMapper.insert(auditLog);
+        templateAuditLogMapper.insert(templateAuditLog);
         // 审核不通过
         if (auditResult == AuditResultConstant.REJECT){
             return 0;
@@ -117,12 +121,40 @@ public class AuditServiceImpl  extends ServiceImpl<AuditLogMapper, AuditLog> imp
      * @return
      */
     @Override
-    public AuditLog getAuditLogByTemplateId(Long templateId) {
-        LambdaQueryWrapper<AuditLog> wrapper = Wrappers.lambdaQuery(AuditLog.class)
-                .eq(AuditLog::getTemplateId, templateId)
-                .orderByDesc(AuditLog::getLogDate);
-        List<AuditLog> logList = auditLogMapper.selectList(wrapper);
+    public TemplateAuditLog getAuditLogByTemplateId(Long templateId) {
+        LambdaQueryWrapper<TemplateAuditLog> wrapper = Wrappers.lambdaQuery(TemplateAuditLog.class)
+                .eq(TemplateAuditLog::getTemplateId, templateId)
+                .orderByDesc(TemplateAuditLog::getLogDate);
+        List<TemplateAuditLog> logList = templateAuditLogMapper.selectList(wrapper);
         return logList.size() == 0 ? null : logList.get(0);
+    }
+
+    @Override
+    @Transactional
+    public void auditTemplateData(List<TemplateDataAuditInfoDTO> templateDataAuditInfoDTOs) {
+        Long templateId=templateDataAuditInfoDTOs.get(0).getTemplateId();
+        Long auditorId=templateDataAuditInfoDTOs.get(0).getAuditorId();
+        // 获取审核通过的数据id
+        List<Long> pass_list =
+                 templateDataAuditInfoDTOs.stream().filter(templateDataAuditInfoDTO -> templateDataAuditInfoDTO.getAuditResult() == AuditResultConstant.PASS)
+                .map(templateDataAuditInfoDTO -> templateDataAuditInfoDTO.getTemplateDataId())
+                .toList();
+        // 保存审核日志
+        List<TemplateDataAuditLog> log_list = templateDataAuditInfoDTOs.stream().map(
+                templateDataAuditInfoDTO ->
+                        TemplateDataAuditLog.builder()
+                                .auditorId(auditorId)
+                                .auditResult(templateDataAuditInfoDTO.getAuditResult())
+                                .note(templateDataAuditInfoDTO.getNote())
+                                .templateId(templateId)
+                                .templateDataId(templateDataAuditInfoDTO.getTemplateDataId())
+                                .logDate(LocalDateTime.now())
+                                .build()
+                        ).toList();
+
+        templateDataAuditLogMapper.insert(log_list);
+        // 审核通过更新
+        templateDataMapper.updateStatusToPass(templateId,pass_list);
     }
 
 }

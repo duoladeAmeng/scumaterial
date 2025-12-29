@@ -10,6 +10,7 @@ import com.scu.dto.TemplateDataDto;
 import com.scu.entity.FileMetaData;
 import com.scu.entity.TemplateField;
 import com.scu.enu.FieldDataTypeEnum;
+import com.scu.mapper.TemplateDataMapper;
 import com.scu.service.FileMetaDataService;
 import com.scu.service.TemplateDataService;
 import com.scu.service.TemplateFieldService;
@@ -45,6 +46,8 @@ public class TemplateDataServiceImpl implements TemplateDataService {
     @Autowired
     private TableOperator tableOperator;
 
+    @Autowired
+    private TemplateDataMapper templateDataMapper;
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -249,12 +252,12 @@ public class TemplateDataServiceImpl implements TemplateDataService {
         }
     }
     @Override
-    public List<TemplateDataDto> getAllAuditedTemplateData(Long templateId) {
-        return List.of();
+    public List<Map<String, Object>> getAllAuditedTemplateData(Long templateId) {
+        return templateDataMapper.getAuditedTemplateData(templateId);
     }
 
     @Override
-    public List<TemplateDataDto> getAllUnAuditedTemplateData(Long templateId) {
-        return List.of();
+    public List<Map<String, Object>> getAllUnAuditedTemplateData(Long templateId) {
+        return templateDataMapper.getUnAuditedTemplateData(templateId);
     }
 }

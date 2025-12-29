@@ -1,20 +1,12 @@
-package com.scu.entity;
-
-import java.time.LocalDateTime;
+package com.scu.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;
-
-
-@Builder
 @Data
-@Schema(description="审核日志")
-public class AuditLog {
-    @Schema(description="日志id")
-    private Long id;
-    @Schema(description="日志时间")
-    private LocalDateTime logDate;
+@Schema(description="模板审核信息DTO")
+@Builder
+public class TemplateAuditInfoDTO {
     @Schema(description="审核员id")
     private Long auditorId;
     @Schema(description="审核结果")

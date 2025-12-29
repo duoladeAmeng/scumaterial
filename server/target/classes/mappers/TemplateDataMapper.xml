@@ -9,7 +9,4 @@
     <select id="getUnAuditedTemplateData" resultType="HashMap">
         SELECT * FROM template_data_${templateId} WHERE status = 0
     </select>
-    <update id="updateStatusToPass">
-        UPDATE template_data_${templateId} SET status = 1 WHERE id IN #{templateDataId}
-    </update>
 </mapper>

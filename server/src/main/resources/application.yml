@@ -35,3 +35,10 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto
+  mapper-locations: classpath*:/mappers/**/*.xml
+
+#mybatis:
+#  mapper-locations:
+#  configuration:
+#    map-underscore-to-camel-case: true
+#mybatis.mapperloca
