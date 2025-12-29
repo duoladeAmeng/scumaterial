@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.scu.constant.TemplateDataStatusConstant;
 import com.scu.dto.TemplateDataDto;
 import com.scu.entity.FileMetaData;
 import com.scu.entity.TemplateField;
@@ -129,6 +130,8 @@ public class TemplateDataServiceImpl implements TemplateDataService {
                 throw new RuntimeException(e);
             }
         }
+        // 添加 status 字段,默认是未审核
+        columnValueMap.put("status", TemplateDataStatusConstant.UNAUDITED);
         // 构造 SQL
         String columns = String.join(", ", columnValueMap.keySet());
         String placeholders = columnValueMap.keySet().stream().map(k -> "?").collect(Collectors.joining(", "));
