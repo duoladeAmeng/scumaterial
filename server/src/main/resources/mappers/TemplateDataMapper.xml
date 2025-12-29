@@ -9,7 +9,16 @@
     <select id="getUnAuditedTemplateData" resultType="HashMap">
         SELECT * FROM template_data_${templateId} WHERE status = 0
     </select>
+<!--    <update id="updateStatusToPass">-->
+<!--        UPDATE template_data_${templateId} SET status = 1 WHERE id IN #{templateDataId}-->
+<!--    </update>-->
+
     <update id="updateStatusToPass">
-        UPDATE template_data_${templateId} SET status = 1 WHERE id IN #{templateDataId}
+        UPDATE template_data_${templateId}
+        SET status = 1
+        WHERE id IN
+        <foreach collection="templateDataId" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
     </update>
 </mapper>

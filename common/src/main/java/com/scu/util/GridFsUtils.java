@@ -2,6 +2,7 @@ package com.scu.util;
 
 import com.mongodb.client.gridfs.GridFSBucket;
 import com.mongodb.client.gridfs.GridFSBuckets;
+import com.mongodb.client.gridfs.model.GridFSFile;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
@@ -73,5 +74,14 @@ public class GridFsUtils {
      */
     public void deleteById(String id) {
         getBucket().delete(new ObjectId(id));
+    }
+
+
+    /**
+     * 根据 ObjectId 获取 GridFS 文件的元数据（包括 filename）
+     */
+    public GridFSFile getFileMetadataById(String id) {
+        ObjectId objectId = new ObjectId(id);
+        return getBucket().find(com.mongodb.client.model.Filters.eq("_id", objectId)).first();
     }
 }

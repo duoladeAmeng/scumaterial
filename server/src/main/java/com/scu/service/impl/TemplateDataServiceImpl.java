@@ -5,17 +5,20 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mongodb.client.gridfs.model.GridFSFile;
 import com.scu.constant.TemplateDataStatusConstant;
 import com.scu.dto.TemplateDataDto;
 import com.scu.entity.FileMetaData;
 import com.scu.entity.TemplateField;
 import com.scu.enu.FieldDataTypeEnum;
 import com.scu.mapper.TemplateDataMapper;
+import com.scu.result.Result;
 import com.scu.service.FileMetaDataService;
 import com.scu.service.TemplateDataService;
 import com.scu.service.TemplateFieldService;
 import com.scu.util.GridFsUtils;
 import com.scu.util.TableOperator;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.poi.ss.usermodel.*;
@@ -48,6 +51,8 @@ public class TemplateDataServiceImpl implements TemplateDataService {
 
     @Autowired
     private TemplateDataMapper templateDataMapper;
+
+
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -259,5 +264,80 @@ public class TemplateDataServiceImpl implements TemplateDataService {
     @Override
     public List<Map<String, Object>> getAllUnAuditedTemplateData(Long templateId) {
         return templateDataMapper.getUnAuditedTemplateData(templateId);
+    }
+
+    // 获取文件
+    @Override
+    public void getFile(HttpServletResponse response, String fileId) {
+        try {
+            // 1. 获取文件元数据
+            GridFSFile fileMeta = gridFsUtils.getFileMetadataById(fileId);
+            if (fileMeta == null) {
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                response.getWriter().write("File not found");
+                return;
+            }
+            String filename = fileMeta.getFilename();
+            if (filename == null) {
+                filename = "unnamed_file";
+            }
+
+            // 2. 获取输入流
+            InputStream inputStream = gridFsUtils.downloadById(fileId);
+            if (inputStream == null) {
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                response.getWriter().write("File stream is null");
+                return;
+            }
+
+            // 3. 设置 Content-Type（可选增强）
+            // GridFS 默认不存 contentType，但通过 metadata 扩展
+            // 这里先用通用类型，或根据扩展名猜测
+            String contentType = getContentType(filename);
+            response.setContentType(contentType);
+
+            // 4. 设置 Content-Disposition（支持中文文件名）
+            response.setHeader("Content-Disposition", "attachment; filename=\"" +
+                    encodeFileName(filename) + "\"; filename*=UTF-8''" + encodeFileName(filename));
+
+            // 5. 流式写入响应
+            byte[] buffer = new byte[8192];
+            int bytesRead;
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                response.getOutputStream().write(buffer, 0, bytesRead);
+            }
+            response.getOutputStream().flush();
+
+            inputStream.close(); // 注意：try-with-resources 更安全，但这里简单关闭
+
+        } catch (IOException e) {
+            log.error("下载文件失败, fileId: {}", fileId, e);
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            try {
+                response.getWriter().write("File download error");
+            } catch (IOException ignored) {}
+            throw new RuntimeException("下载文件失败", e);
+        }
+    }
+
+    // 辅助方法：根据文件扩展名设置 Content-Type（简化版）
+    private String getContentType(String filename) {
+        if (filename.endsWith(".pdf")) return "application/pdf";
+        if (filename.endsWith(".jpg") || filename.endsWith(".jpeg")) return "image/jpeg";
+        if (filename.endsWith(".png")) return "image/png";
+        if (filename.endsWith(".txt")) return "text/plain";
+        if (filename.endsWith(".doc")) return "application/msword";
+        if (filename.endsWith(".docx")) return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+        // 可继续扩展...
+        return "application/octet-stream";
+    }
+
+    // 编码文件名（兼容 IE、Chrome、Firefox）
+    private String encodeFileName(String fileName) {
+        try {
+            return java.net.URLEncoder.encode(fileName, "UTF-8").replaceAll("\\+", "%20");
+        } catch (Exception e) {
+            return fileName;
+        }
     }
 }

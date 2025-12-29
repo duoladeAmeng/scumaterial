@@ -1,6 +1,8 @@
 package com.scu.service;
 
 import com.scu.dto.TemplateDataDto;
+import com.scu.result.Result;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -17,4 +19,6 @@ public interface TemplateDataService {
     List<Map<String, Object>> getAllAuditedTemplateData(Long templateId);
     // 获取所有未审核模板数据
     List<Map<String, Object>> getAllUnAuditedTemplateData(Long templateId);
+
+    void getFile(HttpServletResponse  response, String fileId);
 }
