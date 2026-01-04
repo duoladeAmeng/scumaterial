@@ -25,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -66,7 +67,7 @@ public class TemplateDataController {
     @Operation(summary = "获取所有模板数据")
     @GetMapping("/getAllTemplateData/{templateId}")
     public Result getAllTemplateData(@PathVariable("templateId") Long templateId){
-        List<Map<String, Object>> allTemplateData = templateDataService.getAllTemplateData(templateId);
+        List<LinkedHashMap<String, Object>> allTemplateData = templateDataService.getAllTemplateData(templateId);
         return Result.success(allTemplateData);
     }
 

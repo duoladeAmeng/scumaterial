@@ -53,7 +53,6 @@ public class TemplateDataServiceImpl implements TemplateDataService {
     private TemplateDataMapper templateDataMapper;
 
 
-
     private final JdbcTemplate jdbcTemplate;
 
     public TemplateDataServiceImpl(JdbcTemplate jdbcTemplate) {
@@ -262,20 +261,55 @@ public class TemplateDataServiceImpl implements TemplateDataService {
     /**
      * 获取所有模板数据
      * @param templateId
-     * @return List<TemplateDataDto>
+     * @return
      */
     @Override
-    public List<Map<String, Object>> getAllTemplateData(Long templateId) {
+    public List<LinkedHashMap<String, Object>> getAllTemplateData(Long templateId) {
         return templateDataMapper.getAllTemplateData(templateId);
     }
+    /**
+     * 获取所有已审核模板数据
+     * @param templateId
+     * @return
+     */
     @Override
-    public List<Map<String, Object>> getAllAuditedTemplateData(Long templateId) {
+    public List<LinkedHashMap<String, Object>> getAllAuditedTemplateData(Long templateId) {
         return templateDataMapper.getAuditedTemplateData(templateId);
     }
+    /**
+     * 获取所有未审核模板数据
+     * @param templateId
+     * @return
+     */
 
+    /**
+     * 获取所有未审核模板数据
+     * @param templateId
+     * @return
+     */
     @Override
-    public List<Map<String, Object>> getAllUnAuditedTemplateData(Long templateId) {
+    public List<LinkedHashMap<String, Object>> getAllUnAuditedTemplateData(Long templateId) {
         return templateDataMapper.getUnAuditedTemplateData(templateId);
+    }
+    /**
+     * 把模板数据的字段按创建模板时的字段排列
+     * @param templateDataList
+     * @return
+     */
+    private List<Map<String, Object>> getOrderedTemplateData(List<Map<String, Object>> templateDataList,Long templateId) {
+        LambdaQueryWrapper<TemplateField> wrapper = Wrappers.lambdaQuery(TemplateField.class).eq(TemplateField::getTemplateId, templateId);
+        // 获取创建模板时的字段
+        List<String> orderFieldList = templateFieldService.list(wrapper).stream().map(templateField -> templateField.getFieldName()).toList();
+        ArrayList<Map<String, Object>> ans = new ArrayList<>();
+        for (Map<String, Object> templateData : templateDataList){
+            Map<String, Object> orderedTemplateData = new HashMap<>();
+            for (String fieldName : orderFieldList){
+                if (templateData.containsKey(fieldName)){
+                    orderedTemplateData.put(fieldName, templateData.get(fieldName));
+                }
+            }
+        }
+        return ans;
     }
 
     // 获取文件

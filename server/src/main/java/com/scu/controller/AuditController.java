@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -72,7 +73,7 @@ public class AuditController {
     @Operation(summary = "获取所有待审核模板数据信息")
     @GetMapping("/getTempData/{templateId}")
     public Result auditTemplateData(@PathVariable("templateId") Long temlateId){
-        List<Map<String, Object>> auditedTemplateData = templateDataService.getAllUnAuditedTemplateData(temlateId);
+        List<LinkedHashMap<String, Object>> auditedTemplateData = templateDataService.getAllUnAuditedTemplateData(temlateId);
         return Result.success(auditedTemplateData);
     }
 
