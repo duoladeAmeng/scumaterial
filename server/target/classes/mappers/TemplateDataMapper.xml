@@ -3,13 +3,18 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.scu.mapper.TemplateDataMapper">
-    <select id="getAuditedTemplateData" resultType="HashMap">
+
+    <select id="getAllTemplateData" resultType="java.util.Map">
+        SELECT * FROM template_data_${templateId}
+    </select>
+    <select id="getAuditedTemplateData" resultType="java.util.Map">
         SELECT * FROM template_data_${templateId} WHERE status = 1
     </select>
-    <select id="getUnAuditedTemplateData" resultType="HashMap">
+    <select id="getUnAuditedTemplateData" resultType="java.util.Map">
         SELECT * FROM template_data_${templateId} WHERE status = 0
     </select>
-<!--    <update id="updateStatusToPass">-->
+
+    <!--    <update id="updateStatusToPass">-->
 <!--        UPDATE template_data_${templateId} SET status = 1 WHERE id IN #{templateDataId}-->
 <!--    </update>-->
 

@@ -68,12 +68,14 @@ public class AuditController {
         return Result.success(templateToAuditDtos);
     }
 
+
     @Operation(summary = "获取所有待审核模板数据信息")
     @GetMapping("/getTempData/{templateId}")
     public Result auditTemplateData(@PathVariable("templateId") Long temlateId){
         List<Map<String, Object>> auditedTemplateData = templateDataService.getAllUnAuditedTemplateData(temlateId);
         return Result.success(auditedTemplateData);
     }
+
     @Operation(summary = "数据审核员审核模板数据")
     @PostMapping("/auditTemplateData")
     public Result auditTemplateData(@Parameter(description = "审核信息DTO") @RequestBody List<TemplateDataAuditInfoDTO> templateDataAuditInfoDTOs){

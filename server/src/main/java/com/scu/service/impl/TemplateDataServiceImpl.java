@@ -163,6 +163,8 @@ public class TemplateDataServiceImpl implements TemplateDataService {
 
     }
 
+
+
     // 获取 Excel 中各个字段的数据类型
     private Map<String,String> getFieldDataTypeMapFromExcel(MultipartFile excel,Long templateId) {
         Map<String,String> fieldDataTypeMap = new HashMap<>();
@@ -255,6 +257,16 @@ public class TemplateDataServiceImpl implements TemplateDataService {
             default:
                 return null;
         }
+    }
+
+    /**
+     * 获取所有模板数据
+     * @param templateId
+     * @return List<TemplateDataDto>
+     */
+    @Override
+    public List<Map<String, Object>> getAllTemplateData(Long templateId) {
+        return templateDataMapper.getAllTemplateData(templateId);
     }
     @Override
     public List<Map<String, Object>> getAllAuditedTemplateData(Long templateId) {

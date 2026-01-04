@@ -6,28 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="实现 模板文件数据的下载">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/scu/util/GridFsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/scu/util/GridFsUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/scu/util/GridFsUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/scu/util/GridFsUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/AuditInfoDTO$AuditInfoDTOBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/dto/AuditInfoDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/entity/AuditLog$AuditLogBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/target/classes/com/scu/entity/AuditLog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/AuditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/AuditController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateDataController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/mapper/TemplateDataMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/mapper/TemplateDataMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateDataService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/resources/mappers/TemplateDataMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/mappers/TemplateDataMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/controller/AuditController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/controller/AuditController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateDataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/controller/TemplateDataController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/mapper/AuditLogMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/mapper/TemplateDataMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/mapper/TemplateDataMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/AuditService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/AuditService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/TemplateDataService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/AuditServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/AuditServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateDataServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/com/scu/service/impl/TemplateServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/classes/mappers/TemplateDataMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/mappers/TemplateDataMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,6 +228,8 @@
       <workItem from="1766817109374" duration="3612000" />
       <workItem from="1766986263262" duration="10667000" />
       <workItem from="1767000222810" duration="1046000" />
+      <workItem from="1767012396350" duration="169000" />
+      <workItem from="1767523462039" duration="569000" />
     </task>
     <task id="LOCAL-00001" summary="实现 根据模板分类获取模板 和 创建模板">
       <option name="closed" value="true" />
@@ -461,7 +447,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766995359258</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="实现 模板文件数据的下载">
+      <option name="closed" value="true" />
+      <created>1767012459420</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1767012459420</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
