@@ -4,11 +4,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.scu.dto.FileMetaDto;
+import com.scu.dto.TemplateDataConditionDto;
 import com.scu.dto.TemplateDataDto;
 import com.scu.result.Result;
 import com.scu.service.TemplateDataService;
 import com.scu.util.GridFsUtils;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -58,7 +58,7 @@ public class TemplateDataController {
         return Result.success();
     }
 
-    @Operation(summary = "获取文件")
+    @Operation(summary = "获取模板字段类型为文件的字段对应文件")
     @GetMapping("/getFile/{fileId}")
     public void getFile(@PathVariable("fileId") String fileId, HttpServletResponse  response){
         templateDataService.getFile(response,fileId);
@@ -70,5 +70,18 @@ public class TemplateDataController {
         List<LinkedHashMap<String, Object>> allTemplateData = templateDataService.getAllTemplateData(templateId);
         return Result.success(allTemplateData);
     }
+
+    /**
+     * 根据条件获取模板数据
+     */
+
+    @Operation(summary = "根据条件获取模板数据")
+    @PostMapping("/getTemplateDataByConditions")
+    public Result getAllUnAuditedTemplateData(@RequestBody TemplateDataConditionDto templateDataConditionDto){
+        List<LinkedHashMap<String, Object>> data = templateDataService.getTemplateDataByConditions(templateDataConditionDto, true);
+        return Result.success(data);
+    }
+
+
 
 }

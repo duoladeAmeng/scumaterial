@@ -26,4 +26,15 @@
             #{id}
         </foreach>
     </update>
+
+    <select id="getTemplateDataByFieldCondation" resultType="java.util.LinkedHashMap">
+        SELECT * FROM template_data_${templateId}
+        <where>
+            <foreach collection="condations" item="value" index="key" separator=" AND ">
+                ${key} = #{value}
+            </foreach>
+        </where>
+    </select>
+
+
 </mapper>

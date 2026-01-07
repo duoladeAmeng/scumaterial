@@ -7,6 +7,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.client.gridfs.model.GridFSFile;
 import com.scu.constant.TemplateDataStatusConstant;
+import com.scu.dto.TemplateDataConditionDto;
 import com.scu.dto.TemplateDataDto;
 import com.scu.entity.FileMetaData;
 import com.scu.entity.TemplateField;
@@ -366,6 +367,8 @@ public class TemplateDataServiceImpl implements TemplateDataService {
         }
     }
 
+
+
     // 辅助方法：根据文件扩展名设置 Content-Type（简化版）
     private String getContentType(String filename) {
         if (filename.endsWith(".pdf")) return "application/pdf";
@@ -386,4 +389,15 @@ public class TemplateDataServiceImpl implements TemplateDataService {
             return fileName;
         }
     }
+
+    // 获取模板根据条件数据
+    @Override
+    public List<LinkedHashMap<String, Object>> getTemplateDataByConditions(TemplateDataConditionDto templateDataConditionDto,boolean isAudited) {
+        if(isAudited){
+            templateDataConditionDto.getConditions().put("status",TemplateDataStatusConstant.AUDITED+"");
+        }
+       return   templateDataMapper.getTemplateDataByFieldCondation(templateDataConditionDto.getTemplateId(),templateDataConditionDto.getConditions());
+    }
+
+
 }

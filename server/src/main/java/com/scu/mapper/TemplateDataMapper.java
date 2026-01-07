@@ -17,8 +17,9 @@ public interface TemplateDataMapper {
     public List<LinkedHashMap<String,Object>> getAuditedTemplateData(@Param("templateId")Long templateId);
     //获取所有没有审核的数据
     public List<LinkedHashMap<String,Object>> getUnAuditedTemplateData(@Param("templateId")Long templateId);
-
-
-
+    //批量审核通过
     boolean updateStatusToPass(Long templateId,List<Long> templateDataId);
+    //根据模板id,字段条件获取数据
+    public List<LinkedHashMap<String,Object>> getTemplateDataByFieldCondation(@Param("templateId")Long templateId,@Param("condations")Map<String,String> condations);
+
 }

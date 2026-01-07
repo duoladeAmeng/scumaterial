@@ -1,5 +1,6 @@
 package com.scu.service;
 
+import com.scu.dto.TemplateDataConditionDto;
 import com.scu.dto.TemplateDataDto;
 import com.scu.result.Result;
 import jakarta.servlet.http.HttpServletResponse;
@@ -22,6 +23,9 @@ public interface TemplateDataService {
     List<LinkedHashMap<String, Object>> getAllAuditedTemplateData(Long templateId);
     // 获取所有未审核模板数据
     List<LinkedHashMap<String, Object>> getAllUnAuditedTemplateData(Long templateId);
-
+    //获取模板字段类型为文件的字段对应文件
     void getFile(HttpServletResponse  response, String fileId);
+
+    // 根据条件获取模板数据
+    List<LinkedHashMap<String, Object>> getTemplateDataByConditions(TemplateDataConditionDto templateDataConditionDto,boolean isAudited);
 }
