@@ -13,6 +13,7 @@ import com.scu.entity.FileMetaData;
 import com.scu.entity.TemplateField;
 import com.scu.enu.FieldDataTypeEnum;
 import com.scu.mapper.TemplateDataMapper;
+import com.scu.mapper.TemplateMapper;
 import com.scu.result.Result;
 import com.scu.service.FileMetaDataService;
 import com.scu.service.TemplateDataService;
@@ -55,6 +56,8 @@ public class TemplateDataServiceImpl implements TemplateDataService {
 
 
     private final JdbcTemplate jdbcTemplate;
+    @Autowired
+    private TemplateMapper templateMapper;
 
     public TemplateDataServiceImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -397,6 +400,17 @@ public class TemplateDataServiceImpl implements TemplateDataService {
             templateDataConditionDto.getConditions().put("status",TemplateDataStatusConstant.AUDITED+"");
         }
        return   templateDataMapper.getTemplateDataByFieldCondation(templateDataConditionDto.getTemplateId(),templateDataConditionDto.getConditions());
+    }
+
+    @Override
+    public List<LinkedHashMap<String, Object>> getTemplateDataByCommonField(Map<String, String> fieldVal) {
+        List<LinkedHashMap<String, Object>> ans = new ArrayList<>();
+        List<Long> templateIds = templateMapper.selectList(null).stream().map(template -> template.getId()).toList();
+        for (Long templateId : templateIds){
+            List<LinkedHashMap<String, Object>> data= templateDataMapper.getTemplateDataByFieldCondation(templateId, fieldVal);
+            ans.addAll(data);
+        }
+        return ans;
     }
 
 

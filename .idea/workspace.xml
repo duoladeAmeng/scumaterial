@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="修复bug 返回模板数据字段顺序错误">
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/TemplateDataConditionDto.java" afterDir="false" />
+    <list default="true" id="d3edbdfe-7b8e-4d68-9612-65ae5c134089" name="更改" comment="实现 根据模板id,字段条件获取数据">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/AuditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/AuditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/TemplateDataConditionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/scu/dto/TemplateDataConditionDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/controller/TemplateDataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/mapper/TemplateDataMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/mapper/TemplateDataMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/TemplateDataService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/scu/service/impl/TemplateDataServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/mappers/TemplateDataMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/mappers/TemplateDataMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +230,7 @@
       <workItem from="1767523462039" duration="569000" />
       <workItem from="1767524904905" duration="1497000" />
       <workItem from="1767704558789" duration="1391000" />
-      <workItem from="1767785199128" duration="3428000" />
+      <workItem from="1767785199128" duration="4268000" />
     </task>
     <task id="LOCAL-00001" summary="实现 根据模板分类获取模板 和 创建模板">
       <option name="closed" value="true" />
@@ -475,14 +472,21 @@
       <option name="project" value="LOCAL" />
       <updated>1767526103883</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="实现 根据模板id,字段条件获取数据">
+      <option name="closed" value="true" />
+      <created>1767790551013</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1767790551013</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修正 获取所有待审核模板 返回结果：要包含模板字段名" />
     <MESSAGE value="实现 添加单条模板数据" />
     <MESSAGE value="实现 根据模板分类获取模板详细信息" />
     <MESSAGE value="实现 根据用户名(模板创建者)获取模板详细信息" />
@@ -507,6 +511,7 @@
     <MESSAGE value="实现 模板文件数据的下载" />
     <MESSAGE value="实现 获取指定模板的所有数据" />
     <MESSAGE value="修复bug 返回模板数据字段顺序错误" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复bug 返回模板数据字段顺序错误" />
+    <MESSAGE value="实现 根据模板id,字段条件获取数据" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现 根据模板id,字段条件获取数据" />
   </component>
 </project>

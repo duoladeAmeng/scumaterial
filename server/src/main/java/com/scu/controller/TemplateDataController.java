@@ -75,12 +75,20 @@ public class TemplateDataController {
      * 根据条件获取模板数据
      */
 
-    @Operation(summary = "根据条件获取模板数据")
-    @PostMapping("/getTemplateDataByConditions")
+    @Operation(summary = "根据模板字段条件获取模板数据")
+    @PostMapping("/getTemplateDataByFieldConditions")
     public Result getAllUnAuditedTemplateData(@RequestBody TemplateDataConditionDto templateDataConditionDto){
         List<LinkedHashMap<String, Object>> data = templateDataService.getTemplateDataByConditions(templateDataConditionDto, true);
         return Result.success(data);
     }
+
+    @Operation(summary = "根据所有模板的公共字段，如材料编号，获取数据")
+    @PostMapping("/getTemplateDataByCommonField")
+    public Result getTemplateDataByCommonField(@RequestBody Map<String,String> field_val){
+        List<LinkedHashMap<String, Object>> data = templateDataService.getTemplateDataByCommonField(field_val);
+        return Result.success(data);
+    }
+
 
 
 

@@ -28,4 +28,7 @@ public interface TemplateDataService {
 
     // 根据条件获取模板数据
     List<LinkedHashMap<String, Object>> getTemplateDataByConditions(TemplateDataConditionDto templateDataConditionDto,boolean isAudited);
+
+    // 根据公共字段获取所有模板数据
+    List<LinkedHashMap<String, Object>> getTemplateDataByCommonField(Map<String, String> fieldVal);
 }
